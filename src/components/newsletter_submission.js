@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Login() {
+export default function NewsletterSubmission () {
 
     const [val, setVal] = useState("Hello There")
     const click = () => {
@@ -12,8 +12,8 @@ export default function Login() {
     }
 
     return <div className="newsletterRegistrationForm">
-        <h1>Login</h1>
         <div>
+            <h3>Enter your email here to get the lates news</h3>
             <input onChange={change} value = {val}/>
             <button onClick={click}>Submit</button>
         </div>

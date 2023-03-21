@@ -7,6 +7,7 @@ import Results from "./pages/results.js"
 import Teams from "./pages/teams.js"
 import Login from "./pages/login.js"
 import SignUp from "./pages/signup.js"
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
       </Routes>
+      <Footer />
     </>
   );
 }
