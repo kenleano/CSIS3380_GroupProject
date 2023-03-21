@@ -67,6 +67,7 @@ body {
 .Container {
     z-index: -1;
     position: relative;
+    color: white;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -93,7 +94,6 @@ footer small {
 
 
 
-
 /*****************************/
 /******** Home Screen ********/
 /*****************************/
@@ -116,7 +116,7 @@ footer small {
     font-weight: 100;
 }
 
-.content {
+.homeScreenContent {
     margin: 0;
     width: 100%;
     height: 100%;
@@ -124,7 +124,7 @@ footer small {
     transform: scaleX(-1);
 }
 
-.content img {
+.homeScreenContent img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -132,11 +132,12 @@ footer small {
 }
 
 .newsletterRegistrationForm {
-    z-index: 1;
+    z-index: 10;
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
     bottom: 11rem;
     left: 8rem;
     ;
@@ -144,10 +145,6 @@ footer small {
 
 .newsletterRegistrationForm * {
     margin: 3px;
-}
-
-.newsletterRegistrationForm p {
-    color: white;
 }
 
 .newsletterRegistrationForm input {
@@ -168,3 +165,67 @@ footer small {
     background-color: #0E9ED8;
     font-weight: bold;
 }
+
+
+/*****************************/
+/******** Newsletter *********/
+/*****************************/
+
+
+
+/*****************************/
+/********** Results **********/
+/*****************************/
+
+
+
+/*****************************/
+/*********** Teams ***********/
+/*****************************/
+
+
+
+/*****************************/
+/*********** Login ***********/
+/*****************************/
+.formContainer {
+    width: 30vw;
+    height: 50vh;
+    margin: 10vh 40vw;
+    color: white;
+    justify-content: center;
+}
+
+.formContainer p {
+    font-size:70px;
+}
+
+.formContainer form{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formContainer form * {
+    width: 100%;
+    margin: 5px 0px;
+}
+
+.formContainer form input {
+    margin-bottom: 20px;
+}
+
+
+/*****************************/
+/********** Sign up **********/
+/*****************************/
+/* .register {
+    color: white;
+    margin: 100px;
+}
+
+.register form{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+} */

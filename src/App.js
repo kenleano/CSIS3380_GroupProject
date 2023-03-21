@@ -6,8 +6,8 @@ import Newsletter from "./pages/newsletter.js"
 import Results from "./pages/results.js"
 import Teams from "./pages/teams.js"
 import Login from "./pages/login.js"
-import SignUp from "./pages/signup.js"
 import Footer from "./components/footer";
+import Register from "./pages/register";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/results" element={<Results />}></Route>
         <Route path="/teams" element={<Teams />}></Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/register" element={<Register />}></Route>
       </Routes>
       <Footer />
     </>

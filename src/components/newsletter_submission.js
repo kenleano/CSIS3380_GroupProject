@@ -2,20 +2,20 @@ import { useState } from "react"
 
 export default function NewsletterSubmission () {
 
-    const [val, setVal] = useState("Hello There")
-    const click = () => {
-        alert(val)
-    }
+    const [email, setEmail] = useState("Hello There")
 
-    const change = event => {
-        setVal(event.target.value)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        alert(email)
     }
 
     return <div className="newsletterRegistrationForm">
         <div>
-            <h3>Enter your email here to get the lates news</h3>
-            <input onChange={change} value = {val}/>
-            <button onClick={click}>Submit</button>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="email">Enter your email here to get the latest news</label>                
+                <input value={email} onChange={(e) => setEmail(e.target.value)} for="email" placeholder="Email" id="email" name="email" />
+                <button type="submit">Log in</button>
+            </form>
         </div>
     </div>
 }

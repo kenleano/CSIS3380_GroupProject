@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 
@@ -13,7 +13,7 @@ export default function NavigationBar() {
             </ul>
             <ul>
                 <CustomLink to="/login">Login</CustomLink>
-                <CustomLink to="/signup">Sign up</CustomLink>
+                <CustomLink to="/register">Register</CustomLink>
             </ul>
         </nav>
     )
