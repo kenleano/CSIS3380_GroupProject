@@ -1,0 +1,84 @@
+[
+  {
+    "Burnaby Bumpers": [
+      { "name": "John Smith", "position": "Setter" },
+      { "name": "Emma Johnson", "position": "Libero" },
+      { "name": "Michael Davis", "position": "Middle blocker" },
+      { "name": "Sarah Lee", "position": "Outside hitter" },
+      { "name": "Kevin Nguyen", "position": "Opposite hitter" }
+    ]
+  },
+  {
+    "Surrey Spikers": [
+      { "name": "Kavita Singh", "position": "Setter" },
+      { "name": "Ravi Patel", "position": "Libero" },
+      { "name": "Amit Anand", "position": "Middle blocker" },
+      { "name": "Sonia Shah", "position": "Outside hitter" },
+      { "name": "Priya Rao", "position": "Opposite hitter" }
+    ]
+  },
+  {
+    "Richmond Rockets": [
+      { "name": "Maria Garcia", "position": "Setter" },
+      { "name": "Carlos Dela Cruz", "position": "Libero" },
+      { "name": "Pedro Fernandez", "position": "Middle blocker" },
+      { "name": "Ana Hernandez", "position": "Outside hitter" },
+      { "name": "Josefina Ortiz", "position": "Opposite hitter" }
+    ]
+  },
+  {
+    "North Shore Nuggets": [
+      { "name": "David Fischer", "position": "Setter" },
+      { "name": "Karen Wong", "position": "Libero" },
+      { "name": "Ryu Kim", "position": "Middle blocker" },
+      { "name": "Mia Chen", "position": "Outside hitter" },
+      { "name": "Hiro Nakamura", "position": "Opposite hitter" }
+    ]
+  },
+  {
+    "Delta Diggers": [
+      { "name": "Nisha Patel", "position": "Setter" },
+      { "name": "Rajiv Singh", "position": "Libero" },
+      { "name": "Aditi Mehta", "position": "Middle blocker" },
+      { "name": "Vikram Chaudhary", "position": "Outside hitter" },
+      { "name": "Anita Sharma", "position": "Opposite hitter" }
+    ]
+  },
+  {
+    "Coquitlam Crushers": [
+      { "name": "Jin Kim", "position": "Setter" },
+      { "name": "Jasmine Wong", "position": "Libero" },
+      { "name": "Sang Lee", "position": "Middle blocker" },
+      { "name": "Emily Nguyen", "position": "Outside hitter" },
+      { "name": "Yuki Nakamura", "position": "Opposite hitter" }
+    ]
+  },
+  {
+    "Beachcombers": [
+      { "name": "Connor White", "position": "Setter" },
+      { "name": "Tara Patel", "position": "Libero" },
+      { "name": "Alex Nguyen", "position": "Middle blocker" },
+      { "name": "Olivia Garcia", "position": "Outside hitter" },
+      { "name": "Aiden Fischer", "position": "Opposite hitter" }
+    ]
+  },
+
+  {
+    "West Coast Warriors": [
+      { "name": "Avery Chen", "position": "Setter" },
+      { "name": "Zara Shah", "position": "Libero" },
+      { "name": "Rohan Singh", "position": "Middle blocker" },
+      { "name": "Lila Patel", "position": "Outside hitter" },
+      { "name": "Jai Patel", "position": "Opposite hitter" }
+    ]
+  },
+  {
+    "Victoria Volleyball Club": [
+      { "name": "Natalie Lee", "position": "Setter" },
+      { "name": "Oliver Garcia", "position": "Libero" },
+      { "name": "Lila Lee", "position": "Middle blocker" },
+      { "name": "Henry Kim", "position": "Outside hitter" },
+      { "name": "Sophia Nguyen", "position": "Opposite hitter" }
+    ]
+  }
+]
