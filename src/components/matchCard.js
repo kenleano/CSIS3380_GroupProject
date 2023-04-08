@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/matchCard.css";
 
+
 const teamNames = [
     "Beachcombers",
     "Cascade Avalanche",
