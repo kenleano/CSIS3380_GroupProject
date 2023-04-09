@@ -10,10 +10,12 @@ export default function NavigationBar() {
                 <CustomLink to="/newsletter">Newsletter</CustomLink>
                 <CustomLink to="/results">Results</CustomLink>
                 <CustomLink to="/teams">Teams</CustomLink>
+                <CustomLink to="/dashboard">Dashboard</CustomLink>
             </ul>
             <ul>
                 <CustomLink to="/login">Login</CustomLink>
                 <CustomLink to="/register">Register</CustomLink>
+                
             </ul>
         </nav>
     )

@@ -1,0 +1,42 @@
+{ "teams": [
+    {
+      "id": 1,
+      "name": "Surrey Storm",
+      "description": "Description of team",
+      "location": "City, State",
+      "days": "Monday, Wednesday, Friday",
+      "geoTag": "12345",
+      "logo": "https://www.svgrepo.com/show/513169/band-aid.svg",
+      "coachName": "Coach Name",
+      "coachInfo": "Coaching credentials",
+      "email": "team@example.com",
+      "open": true
+    },
+    {
+        "id": 2,
+        "name": "Team Name",
+        "description": "Description of team",
+        "location": "City, State",
+        "days": "Monday, Wednesday, Friday",
+        "geoTag": "12345",
+        "logo": "https://example.com/logo.png",
+        "coachName": "Coach Name",
+        "coachInfo": "Coaching credentials",
+        "email": "team@example.com",
+        "open": true
+      },
+      {
+        "id": 3,
+        "name": "Team Name",
+        "description": "Description of team",
+        "location": "City, State",
+        "days": "Monday, Wednesday, Friday",
+        "geoTag": "12345",
+        "logo": "https://example.com/logo.png",
+        "coachName": "Coach Name",
+        "coachInfo": "Coaching credentials",
+        "email": "team@example.com",
+        "open": true
+      }
+  ]
+}

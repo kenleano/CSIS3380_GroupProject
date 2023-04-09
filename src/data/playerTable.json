@@ -1,0 +1,38 @@
+{
+  "players": [
+    {
+      "teamID": 1,
+      "id": 1,
+      "name": "John Smith",
+      "position": "Forward",
+      "DOB": "01/01/1990",
+      "contact": "john.smith@example.com",
+      "injuries": "None",
+      "active": true,
+      "medical": "Fit for play"
+    },
+    { 
+      "teamID": 1,
+      "id": 2,
+      "name": "Jane Doe",
+      "position": "Midfielder",
+      "DOB": "02/02/1991",
+      "contact": "jane.doe@example.com",
+      "injuries": "Sprained ankle",
+      "active": true,
+      "medical": "Doubtful for next game"
+    },
+    { 
+      "teamID": 1,
+      "id": 3,
+      "name": "Bob Johnson",
+      "position": "Defender",
+      "DOB": "03/03/1992",
+      "contact": "bob.johnson@example.com",
+      "injuries": "Knee injury",
+      "active": false,
+      "medical": "Out for season"
+    }
+  ]
+
+}

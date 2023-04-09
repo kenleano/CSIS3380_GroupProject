@@ -84,45 +84,7 @@ function TeamCard(props) {
         </p>
       </div>
     </div>
-  );
-}
-function App2() {
-  const [teams] = useState(Teams);
-  const [searchInput, setSearchInput] = useState("");
-
-  const handleSearchInputChange = (event) => {
-    setSearchInput(event.target.value);
-  };
-
-  const filterTeams = (teams, searchText) => {
-    return teams.filter((team) =>
-      Object.keys(team)[0].toLowerCase().includes(searchText.toLowerCase())
-    );
-  };
-
-  const filteredTeams = filterTeams(teams, searchInput);
-
-  const teamComponents = filteredTeams.map((team, index) => (
-    <TeamCard
-      key={index}
-      teamName={Object.keys(team)[0]}
-      players={Object.values(team)[0]}
-    />
-  ));
-
-  return (
-    <div>
-    <div className="team-container">
-      <input
-        type="text"
-        value={searchInput}
-        onChange={handleSearchInputChange}
-        placeholder="Search for a team"
-      />
-      {teamComponents}
-    </div>
-    </div>
-  );
+  ); 
 }
 function App() {
   //Uses teams from data/teams.js
