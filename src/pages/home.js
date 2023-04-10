@@ -1,10 +1,16 @@
 import React, { useState } from "react"
 import NewsletterSubmission from "../components/newsletter_submission"
 
+
+
+
 export default function Home() {
 
+
     return (
+        
         <>
+        
             <div className="Container">
                 <div className="homeScreenText">
                     <h1><strong>Spike</strong> into</h1>
@@ -16,6 +22,13 @@ export default function Home() {
                 </div>
             </div>
             <NewsletterSubmission />
+            <div className="geo">
+                <p id="demo"></p>
+            </div>
         </>
     )
 }
+ 
+
+
+
