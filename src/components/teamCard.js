@@ -71,18 +71,20 @@ function TeamCard(props) {
   return (
     <div className="teamcardcontainer">
       <div className="teamcard">
-        <br />
-        <br />
-        <h2 className="team-name">{teamName}</h2>
+        <button className="team-name">{teamName}</button>
+        
         <p className="team-players">
           {players.map((player) => (
             <span>
-              {player.name} ({player.position})
-              <br />
+              <label className="playerName"> {player.name} </label>
+              <br/>
+              <label className="playerPosition"> {player.position} </label>
+              <br/>
             </span>
           ))}
         </p>
       </div>
+      <video src="/public/assets/bgvid.mp4" loop muted autoplay></video>
     </div>
   ); 
 }
