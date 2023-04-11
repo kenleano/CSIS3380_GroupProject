@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-// import axios from 'axios';
+import axios from 'axios';
 
 function otk(){
 
@@ -21,40 +21,46 @@ function otk(){
 }
 
 export default function Register() {
+
     const handleSubmit = (e) => {
         e.preventDefault();
     };
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [fullName, setFullName] = useState('')
     const [teamName, setTeamName] = useState('')
 
-    // const onSubmit = (e) => {
-    //     e.preventDefault();
+    const onSubmit = (e) => {
+        e.preventDefault();
 
-    //     const activityvar = { 
-    //         user: email,
-    //         password:password 
-    //     };
+        const activityvar = { 
+            user: email,
+            password:password 
+        };
 
-    //     axios
-    //     .get('http://localhost:5000/')
-    //     .then((response) => {
+        axios
+        .get('http://localhost:5000/')
+        .then((response) => {
             
-    //         let l = 
-    //         axios
-    //         .post('http://localhost:5000/activity/user/add', activityvar)
-    //         .then((res) => {
-    //           window.location = '/';
-    //         });
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    //   };
+            let l = 
+            axios
+            .post('http://localhost:5000/activity/user/add', activityvar)
+            .then((res) => {
+              window.location = '/';
+            });
+
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+
+      };
 
     return <>
         <div className="register formContainer">
+           
             <form onSubmit={handleSubmit}>
             <h4>Register</h4>
                 <label htmlFor="email">email</label>
@@ -66,7 +72,7 @@ export default function Register() {
                 <label htmlFor="teamName">Full name</label>
                 <input value={teamName} onChange={(e) => setTeamName(e.target.value)} for="teamName" placeholder="" id="teamName" name="teamName" />
                 <button type="submit">Log in</button>
-                <a className="register" href="/login">Already have an account? Login here.</a>
+                <a href="/login">Already have an account? Login here.</a>
             </form>
         </div>
     </>
