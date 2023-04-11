@@ -22,7 +22,7 @@ export default function Login() {
                 <input value={password} onChange={(e) => setPassword(e.target.value)} for="password" placeholder="password" id="password" name="password" />
                 <button type="submit">Log in</button>
             </form>
-            <a className="register" href="/register">Don't have an account? Register here.</a>
+            <a className="registerLink" href="/register">Don't have an account? Register here.</a>
         </div>
     </>
 
