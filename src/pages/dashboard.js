@@ -57,11 +57,10 @@ function Players() {
     }));
     setEditingPlayer(null);
   };
-
   const handleAddPlayer = (newPlayer) => {
     setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
   };
-  
+
     
   console.log("PLAYERS FILTERED:", playerFiltered);
   return (

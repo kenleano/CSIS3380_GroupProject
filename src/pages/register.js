@@ -21,6 +21,9 @@ function otk(){
 }
 
 export default function Register() {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [fullName, setFullName] = useState('')
@@ -52,9 +55,8 @@ export default function Register() {
 
     return <>
         <div className="register formContainer">
-            <p>Register</p>
-            {/* <form onSubmit={handleSubmit}> */}
-            <form>
+            <form onSubmit={handleSubmit}>
+            <h4>Register</h4>
                 <label htmlFor="email">email</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} for="email" placeholder="example@example.com" id="email" name="email" />
                 <label htmlFor="password">password</label>

@@ -8,69 +8,19 @@ let PlayerList = require('../models/playerList.model');
 
 let Activity = UserList;
 
-/*
-router.route('/').get((req, res) => {
-  Activity.find()
-    .then((activities) => res.json(activities))
-    .catch((err) => res.status(400).json('Error: ' + err));
-});
 
-router.route('/add').post(async (req, res) => {
-  const activity = req.body.activity;
-  // create a new Activity object
-  const newActivity = await new Activity({
-    activity,
-  });
-  // save the new object (newActivity)
-  newActivity
-    .save()
-    .then(() => res.json('Activity added!'))
-    .catch((err) => res.status(400).json('Error: ' + err));
-});
-
-router.route('/:id').get((req, res) => {
-
-  Activity = getList(req.params.collection);
-  Activity.findById(req.params.id)
-    .then((activity) => res.json(activity))
-    .catch((err) => res.status(400).json('Error: ' + err));
-});
-
-router.route('/delete/:id').delete(async (req, res) => {
-
-  Activity = getList(req.params.collection);
-await Activity.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Activity deleted.'))
-    .catch((err) => res.status(400).json('Error: ' + err));
-});
-
-router.route('/update/:id').post(async (req, res) => {
-  console.log(req.params.id);
-await  Activity.findById(req.params.id)
-    .then((activityforedit) => {
-      activityforedit.activity = req.body.activity;
-
-      activityforedit
-        .save()
-        .then(() => res.json('Activity updated!'))
-        .catch((err) => res.status(400).json('Error: ' + err));
-    })
-    .catch((err) => res.status(400).json('Error: ' + err));
-});
-
-*/
+const User = require('..userList.model');
 
 router.route('/user/add').post(async (req, res) => {
-  Activity = UserList;
-
   const activity = req.body.activity;
   
-  // create a new Activity object
-  const newActivity = await new Activity({
+  // create a new User object
+  const newUser = new User({
     activity,
   });
-  // save the new object (newActivity)
-  newActivity
+  
+  // save the new object (newUser)
+  newUser
     .save()
     .then(() => res.json('Activity added!'))
     .catch((err) => res.status(400).json('Error: ' + err));
