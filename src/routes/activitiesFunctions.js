@@ -85,10 +85,6 @@ async function deleteDocument(doc, collection){
     await save(db);
 }
 
-
-
-
-
 module.exports = {
   retrieveDocument,
   getDB, 
