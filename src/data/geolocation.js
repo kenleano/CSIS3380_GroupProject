@@ -9,7 +9,6 @@ function distance(latitude1, longitude1, latitude2, longitude2){
     var rad_lon1 = longitude1 * pi / 180;
     var rad_lon2 = longitude2 * pi / 180;
 
-
     var delta_latitude = rad_lat2 - rad_lat1;
     var delta_longitude = rad_lon2 / 180 - rad_lon1;
 
@@ -18,24 +17,16 @@ function distance(latitude1, longitude1, latitude2, longitude2){
     Math.pow(Math.sin(delta_longitude/2),2);
 
     return 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)) * 6378.137 * 1000;
-    
-    
-
-
-}   
-
+}
 
 function getPosition() {
-
     return new Promise((res, rej) => {
         navigator.geolocation.getCurrentPosition(res, rej);
     });
 }
 
 async function getDistances(){
-
     const crd = await getPosition();
-      
 
     for(var team of teamTable){
 
@@ -49,9 +40,6 @@ async function getDistances(){
             dMin = d;
             var closestTeamID = team.id; 
         }
-
     }
-
     return closestTeamID;
-
 }
