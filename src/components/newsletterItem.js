@@ -16,7 +16,7 @@ class NewsletterItem extends Component {
         const { post } = this.props
         return (
             <div className="titleContainer">
-                <h2 onClick={this.titleWasClicked}>{post.title}</h2>
+                <h2 onClick={this.titleWasClicked}>Week {post.id}</h2>
             </div>
         )
     }

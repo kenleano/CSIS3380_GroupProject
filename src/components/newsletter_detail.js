@@ -10,6 +10,7 @@ class NewsletterDetail extends Component {
         return(
             <div>
                 <h1>{post.title}</h1>
+                <img className="newsletterImage" src={post.image} alt="Newsletter" />
                 <p>{post.content}</p>
             </div>
         )

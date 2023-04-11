@@ -27,15 +27,171 @@ function Team() {
       <tr>GeoTag: {team.geoTag}</tr>
 
       <tr>
-        Coach: {team.coachName} ({team.coachInfo})
+        Coach: {team.coachName} {team.coachInfo}
       </tr>
       <tr>Email: {team.email}</tr>
       <tr>Open: {team.open}</tr>
+      <br />
+      <br />
     </div>
   );
+}function Players() {
+  const [players, setPlayers] = React.useState(playerTable.players);
+  const [editingPlayer, setEditingPlayer] = React.useState(null);
+
+  const handleDeletePlayer = (playerID) => {
+    setPlayers((prevPlayers) =>
+      prevPlayers.filter((player) => player.id !== playerID)
+    );
+  };
+
+  const handleEditPlayer = (playerID, updatedPlayer) => {
+    setPlayers((prevPlayers) =>
+      prevPlayers.map((player) => {
+        if (player.id === playerID) {
+          return { ...player, ...updatedPlayer };
+        } else {
+          return player;
+        }
+      })
+    );
+    setEditingPlayer(null);
+  };
+
+  const handleAddPlayer = (newPlayer) => {
+    setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
+  };
+
+  console.log("PLAYERS:", players);
+  return (
+    <div className="dashboardPlayers">
+      <h1>Players:</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Date of Birth</th>
+            <th>Contact</th>
+            <th>Injuries</th>
+            {/* <th>Active</th> */}
+            <th>Medical</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {players.map((player) => (
+            <tr key={player.id}>
+              <td>{player.name}</td>
+              <td>{player.position}</td>
+              <td>{player.DOB}</td>
+              <td>{player.contact}</td>
+              <td>{player.injuries}</td>
+              {/* <td>{player.active}</td> */}
+              <td>{player.medical}</td>
+              <td>
+                <button
+                  onClick={() => setEditingPlayer(player.id)}
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDeletePlayer(player.id)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+          <tr>
+            <td>
+              <input
+                type="text"
+                placeholder="Name"
+                onChange={(e) =>
+                  setEditingPlayer({
+                    ...editingPlayer,
+                    name: e.target.value,
+                  })
+                }
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                placeholder="Position"
+                onChange={(e) =>
+                  setEditingPlayer({
+                    ...editingPlayer,
+                    position: e.target.value,
+                  })
+                }
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                placeholder="Date of Birth"
+                onChange={(e) =>
+                  setEditingPlayer({
+                    ...editingPlayer,
+                    DOB: e.target.value,
+                  })
+                }
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                placeholder="Contact"
+                onChange={(e) =>
+                  setEditingPlayer({
+                    ...editingPlayer,
+                    contact: e.target.value,
+                  })
+                }
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                placeholder="Injuries"
+                onChange={(e) =>
+                  setEditingPlayer({
+                    ...editingPlayer,
+                    injuries: e.target.value,
+                  })
+                }
+              />
+            </td>
+            <td>
+  <input
+    type="text"
+    placeholder="Medical"
+    onChange={(e) =>
+      setEditingPlayer({
+        ...editingPlayer,
+        medical: e.target.value,
+      })
+    }
+  />
+</td>
+<td>
+  <button className="addPlayerBtn" onClick={() => handleAddPlayer(editingPlayer)}>
+    Add Player
+  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+);
 }
 
-function Players() {
+
+
+function Players2() {
   const [players, setPlayers] = React.useState(playerTable.players);
   const playerFiltered = players.filter((players) => players.teamID === teamID);
 
@@ -157,6 +313,8 @@ function GamesTable() {
           ))}
         </tbody>
       </table>
+      <br/>
+      <button className="logoutBtn">Logout</button>
     </div>
   );
 }
@@ -169,6 +327,14 @@ function App() {
         <Players />
         <br />
         <GamesTable />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        
+        <br />
       </div>
     </div>
   );

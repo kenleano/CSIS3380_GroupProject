@@ -12,6 +12,7 @@ export default function NewsletterSubmission () {
     return <div className="newsletterRegistrationForm">
         <div>
             <form onSubmit={handleSubmit}>
+
                 <label htmlFor="email">Enter your email here to get the latest news</label>                
                 <input value={email} onChange={(e) => setEmail(e.target.value)} for="email" placeholder="Email" id="email" name="email" />
                 <button type="submit">Log in</button>

@@ -12,38 +12,54 @@
     flex-direction: row;
     align-items: stretch;
     justify-content: space-between;
-}
-
-.PostList {
+    transition: all 0.3s ease-in-out; /* added transition property for smooth animations */
+  }
+  
+  .PostList {
     width: 30%;
     border-radius: 25px;
     background-color: #0d1524d7;
-}
-
-.titleContainer {
+    transition: all 0.3s ease-in-out; /* added transition property for smooth animations */
+  }
+  
+  .titleContainer {
+    
     cursor: pointer;
     margin: 0;
     height: 6rem;
     padding: 2rem;
-    border-bottom: #0e9fd827 solid;
+    border-bottom: #1f7ca127 solid;
     align-items: center;
-}
+    transition: all 0.3s ease-in-out; /* added transition property for smooth animations */
+  }
+  .titleContainer:hover {
+    background-color: hsla(197, 100%, 51%, 1);
+    border-radius: 25px;
+  }
+  
 
-.titleContainer h2 {
+  .titleContainer h2 {
     margin: 0;
     font-size: 2rem;
     text-align: center;
-}
-
-.PostContent {
+  }
+  
+  .PostContent {
     width: 65%;
     align-items: center;
     text-align: center;
-    
-}
-
-.PostContent p {
+    transition: all 0.3s ease-in-out; /* added transition property for smooth animations */
+  }
+  
+  .PostContent p {
     text-align: justify;
     font-size: 1.3rem;
     line-height: 2rem;
-}
+  }
+  
+  .newsletterImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out; /* added transition property for smooth animations */
+  }

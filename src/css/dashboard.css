@@ -1,9 +1,10 @@
 .dashboardContainer {
     margin-top: 80px;
-    height: 80vh;
+    max-height: 200vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
   }
   .dashboardTeam {
     width: 100%;
@@ -120,5 +121,27 @@
   
   .dashboardGames th {
     background: #0e9ed8;
+  }
+
+  .logoutBtn {
+    background: #d8980e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+
+  }
+
+  .logoutBtn:hover {
+    background: #f1b40e;
   }
   

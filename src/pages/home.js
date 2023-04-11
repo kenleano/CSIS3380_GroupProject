@@ -14,6 +14,7 @@ export default function Home() {
                     <img src="..\assets\landing2.png" alt="" ></img>
                 </div>
             </div>
+        
             <NewsletterSubmission />
             <div className="geo">
                 <p id="demo"></p>

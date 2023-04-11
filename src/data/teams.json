@@ -81,8 +81,51 @@
         { "name": "Henry Kim", "position": "Outside hitter" },
         { "name": "Sophia Nguyen", "position": "Opposite hitter" }
       ]
-    }
-  
-
-
+    },
+    
+      {
+        "New Westminster Warriors": [
+          { "name": "Ethan Chen", "position": "Setter" },
+          { "name": "Sophia Kim", "position": "Libero" },
+          { "name": "Lucas Patel", "position": "Middle blocker" },
+          { "name": "Grace Lee", "position": "Outside hitter" },
+          { "name": "Nathan Singh", "position": "Opposite hitter" }
+        ]
+      },
+      {
+        "Langley Legends": [
+          { "name": "Emma Davis", "position": "Setter" },
+          { "name": "Liam Johnson", "position": "Libero" },
+          { "name": "Olivia Martinez", "position": "Middle blocker" },
+          { "name": "Jackson Wong", "position": "Outside hitter" },
+          { "name": "Sophie Nguyen", "position": "Opposite hitter" }
+        ]
+      },
+      {
+        "Abbotsford Aces": [
+          { "name": "Elijah Garcia", "position": "Setter" },
+          { "name": "Ava Lee", "position": "Libero" },
+          { "name": "Julian Kim", "position": "Middle blocker" },
+          { "name": "Madeline Patel", "position": "Outside hitter" },
+          { "name": "David Chen", "position": "Opposite hitter" }
+        ]
+      },
+      {
+        "Maple Ridge Mavericks": [
+          { "name": "Grace Wong", "position": "Setter" },
+          { "name": "Benjamin Patel", "position": "Libero" },
+          { "name": "Sophia Garcia", "position": "Middle blocker" },
+          { "name": "Alexander Kim", "position": "Outside hitter" },
+          { "name": "Olivia Nguyen", "position": "Opposite hitter" }
+        ]
+      },
+      {
+        "Chilliwack Chargers": [
+          { "name": "Lucas Martinez", "position": "Setter" },
+          { "name": "Emily Kim", "position": "Libero" },
+          { "name": "Henry Wong", "position": "Middle blocker" },
+          { "name": "Avery Patel", "position": "Outside hitter" },
+          { "name": "Chloe Lee", "position": "Opposite hitter" }
+        ]
+      }
   ]
