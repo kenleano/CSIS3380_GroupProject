@@ -8,6 +8,7 @@ import Teams from "./pages/teams.js"
 import Login from "./pages/login.js"
 import Footer from "./components/footer";
 import Register from "./pages/register";
+import Dashboard from "./pages/dashboard";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/teams" element={<Teams />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
       </Routes>
       <Footer />
     </>

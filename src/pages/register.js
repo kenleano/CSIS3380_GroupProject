@@ -1,16 +1,59 @@
 import React, { useState } from "react"
+import axios from 'axios';
+
+function otk(){
+
+    let randNum = Math.floor(Math.random()*25);
+    let key = String.fromCharCode(randNum+65);
+    randNum = Math.floor(Math.random()*25);
+    key += String.fromCharCode(randNum+97);
+    randNum = Math.floor(Math.random()*100);
+    key += "" + randNum;
+    randNum = Math.floor(Math.random()*25);
+    key += String.fromCharCode(randNum+97);
+    randNum = Math.floor(Math.random()*25);
+    key += String.fromCharCode(randNum+65);
+    randNum = Math.floor(Math.random()*100);
+    key += "" + randNum;
+
+    return key;
+
+}
 
 export default function Register() {
+
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [fullName, setFullName] = useState('')
     const [teamName, setTeamName] = useState('')
 
-    const handleSubmit = (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
-        alert('email: ' + email + '\npassword: ' + password)
-    }
+
+        const activityvar = { 
+            user: email,
+            password:password 
+        };
+
+        axios
+        .get('http://localhost:5000/')
+        .then((response) => {
+            
+            let l = 
+            axios
+            .post('http://localhost:5000/activity/user/add', activityvar)
+            .then((res) => {
+              window.location = '/';
+            });
+
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+
+      };
 
     return <>
         <div className="register formContainer">
@@ -25,7 +68,7 @@ export default function Register() {
                 <label htmlFor="teamName">Full name</label>
                 <input value={teamName} onChange={(e) => setTeamName(e.target.value)} for="teamName" placeholder="" id="teamName" name="teamName" />
                 <button type="submit">Log in</button>
-                <button>Already have an account? Login here.</button>
+                <a href="/login">Already have an account? Login here.</a>
             </form>
         </div>
     </>
