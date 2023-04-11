@@ -263,25 +263,49 @@ footer small {
     margin: 10vh 40vw;
     color: white;
     justify-content: center;
+    align-items: center;
+    
 }
-
+.formContainer a {
+    color: white;
+    text-decoration: none;
+}
+.formContainer a:hover {
+    color: #0E9ED8;
+   
+}
 .formContainer p {
     font-size:70px;
+    
 }
-
+.formContainer h4{
+    font-size:50px;
+    text-align: center;
+}
 .formContainer form{
+
     width: 300px;
     display: flex;
     flex-direction: column;
 }
 
 .formContainer form * {
+
     width: 100%;
     margin: 5px 0px;
 }
 
 .formContainer form input {
+
+    height: 30px;
     margin-bottom: 20px;
+
+}
+
+.formContainer button {
+    margin-top: 10px;
+    width: 300px;
+    
 }
 
 
