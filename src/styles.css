@@ -32,7 +32,7 @@ html {
 
 body {
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -85,7 +85,7 @@ body {
     z-index: -1;
     position: relative;
     color: white;
-    height: 100vh;
+    height: 99vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -187,7 +187,54 @@ footer small {
 /*****************************/
 /******** Newsletter *********/
 /*****************************/
-/******/
+.NewsletterContent {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 6rem;
+    padding: 2rem 3% 10rem 3%;
+    text-align: justify;
+    color: white;
+    background-color: #0d1524a8;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.PostList {
+    width: 30%;
+    background-color: #0d1524d7;
+}
+
+.titleContainer {
+    cursor: pointer;
+    margin: 0;
+    height: 6rem;
+    padding: 2rem;
+    border-bottom: #0e9fd827 solid;
+    align-items: center;
+}
+
+.titleContainer h2 {
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.PostContent {
+    width: 65%;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.PostContent p {
+    text-align: justify;
+    font-size: 1.3rem;
+    line-height: 2rem;
+}
+
 
 
 /*****************************/
@@ -236,13 +283,3 @@ footer small {
 /*****************************/
 /********** Sign up **********/
 /*****************************/
-/* .register {
-    color: white;
-    margin: 100px;
-}
-
-.register form{
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-} */
