@@ -25,7 +25,7 @@ connection.once('open', () => {
 const dbRouter = require('./routes/activities');
 
 // adding /books to before all routes
-app.use('/activity', dbRouter);
+app.use('/', dbRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

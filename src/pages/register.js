@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import axios from 'axios';
+// import axios from 'axios';
 
 function otk(){
 
@@ -32,28 +32,28 @@ export default function Register() {
     const [teamName, setTeamName] = useState('')
 
     const onSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
-        const activityvar = { 
-            user: email,
-            password:password 
-        };
+        // const activityvar = { 
+        //     user: email,
+        //     password:password 
+        // };
 
-        axios
-        .get('http://localhost:5000/')
-        .then((response) => {
+        // axios
+        // .get('http://localhost:5000/')
+        // .then((response) => {
             
-            let l = 
-            axios
-            .post('http://localhost:5000/activity/user/add', activityvar)
-            .then((res) => {
-              window.location = '/';
-            });
+        //     let l = 
+        //     axios
+        //     .post('http://localhost:5000/activity/user/add', activityvar)
+        //     .then((res) => {
+        //       window.location = '/';
+        //     });
 
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        // })
+        // .catch((error) => {
+        //   console.log(error);
+        // });
 
 
       };
@@ -62,17 +62,17 @@ export default function Register() {
         <div className="register formContainer">
            
             <form onSubmit={handleSubmit}>
-            <h4>Register</h4>
-                <label htmlFor="email">email</label>
+            <h2>Register</h2>
+                <label htmlFor="email">Email</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} for="email" placeholder="example@example.com" id="email" name="email" />
-                <label htmlFor="password">password</label>
+                <label htmlFor="password">Password</label>
                 <input value={password} onChange={(e) => setPassword(e.target.value)} for="password" placeholder="password" id="password" name="password" />
                 <label htmlFor="fullName">Full name</label>
                 <input value={fullName} onChange={(e) => setFullName(e.target.value)} for="fullName" placeholder="" id="fullName" name="fullName" />
-                <label htmlFor="teamName">Full name</label>
+                <label htmlFor="teamName">Team name</label>
                 <input value={teamName} onChange={(e) => setTeamName(e.target.value)} for="teamName" placeholder="" id="teamName" name="teamName" />
                 <button type="submit">Log in</button>
-                <a href="/login">Already have an account? Login here.</a>
+                <a className="register" href="/login">Already have an account? Login here.</a>
             </form>
         </div>
     </>
