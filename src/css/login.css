@@ -1,0 +1,30 @@
+.formContainer {
+    width: 30vw;
+    height: 50vh;
+    margin: 15vh 40vw;
+    color: white;
+    justify-content: center;
+}
+
+
+.formContainer form{
+    width: 300px;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.formContainer form * {
+    width: 100%;
+    margin: 5px 0px;
+}
+
+.formContainer form input {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.register {
+    color: white;
+    font-size: 1rem;
+}

@@ -1,7 +1,7 @@
 import "../css/dashboard.css";
 
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import playerTable from "../data/playerTable.json";
 import teamTable from "../data/teamTable.json";
 import gamesTable from "../data/gameTable.json";
@@ -57,11 +57,10 @@ function Players() {
     }));
     setEditingPlayer(null);
   };
-
   const handleAddPlayer = (newPlayer) => {
     setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
   };
-  
+
     
   console.log("PLAYERS FILTERED:", playerFiltered);
   return (

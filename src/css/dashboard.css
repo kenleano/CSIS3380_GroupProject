@@ -12,7 +12,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image:url("/public/assets/vballicon.png");
+    background: linear-gradient(rgba(5, 52, 129, 0.6), rgb(0, 22, 38)), url("/public/assets/vballicon.png");
+    
     background-repeat: no-repeat;
     background-position: botom;
     background-size: 100%;
@@ -67,12 +68,12 @@
     text-align: center;
   }
   .dashboard {
-    background: #030e25;
+    background: #010f1e;
 
     height: 100%;
     padding: 20px;
     overflow-y: scroll;
-    border-radius: 10px;
+    border-radius: 25px;
   }
   
   .dashboardPlayers table {

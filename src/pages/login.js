@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import "../css/login.css"
 
 export default function Login() {
 
@@ -12,15 +13,16 @@ export default function Login() {
 
     return <>
         <div className="loginForm formContainer">
-            <p>Login</p>
+           
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">email</label>
+            <h2>Login</h2>
+                <label htmlFor="email">Email</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} for="email" placeholder="example@example.com" id="email" name="email" />
-                <label htmlFor="password">password</label>
+                <label htmlFor="password">Password</label>
                 <input value={password} onChange={(e) => setPassword(e.target.value)} for="password" placeholder="password" id="password" name="password" />
                 <button type="submit">Log in</button>
             </form>
-            <button>Don't have an account? Register here.</button>
+            <a className="register" href="/register">Don't have an account? Register here.</a>
         </div>
     </>
 
