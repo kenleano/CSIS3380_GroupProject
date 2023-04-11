@@ -8,6 +8,17 @@
     font-family: "Raleway";
 }
 
+.Container {
+    z-index: -1;
+    position: relative;
+    color: white;
+    height: 99vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 html {
     height: 100%;
     margin: 0;
