@@ -145,3 +145,20 @@
     background: #f1b40e;
   }
   
+  .editProfileBtn {
+    background: #0e9ed8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float:right;
+    width: 150px;
+
+  }
+
+  .editProfileBtn:hover {
+    background: #23b8f3;
+  }

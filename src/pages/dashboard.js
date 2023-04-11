@@ -33,6 +33,8 @@ function Team() {
       <tr>Open: {team.open}</tr>
       <br />
       <br />
+      <button className="editProfileBtn">Edit Profile</button>
+      <br />
     </div>
   );
 }function Players() {
