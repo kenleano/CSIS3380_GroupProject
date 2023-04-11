@@ -1,0 +1,80 @@
+
+.Container {
+    z-index: -1;
+    position: relative;
+    color: white;
+    height: 99vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homeScreenText {
+    z-index: 1;
+    position: absolute;
+    top: 10rem;
+    left: 8rem;
+    color: white;
+}
+
+.homeScreenText h1 {
+    margin: 5px;
+    font-size: 7rem;
+}
+
+.homeScreenText h2 {
+    margin: 5px;
+    font-weight: 100;
+}
+
+.homeScreenContent {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.homeScreenContent img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+}
+
+.newsletterRegistrationForm {
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    bottom: 11rem;
+    left: 8rem;
+    ;
+}
+
+.newsletterRegistrationForm * {
+    margin: 3px;
+}
+
+.newsletterRegistrationForm input {
+    width: 100%;
+    height: 2.5rem;
+    background: #d1e8f187;
+    border-radius: 8px;
+    border: none;
+}
+
+.newsletterRegistrationForm button {
+    color: white;
+    font-size: 2vh;
+    width: 30%;
+    height: 2rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #0E9ED8;
+    font-weight: bold;
+}
+  

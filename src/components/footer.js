@@ -1,4 +1,6 @@
 import React from "react";
+import "../css/homeScreen.css"
+
 
 export default function Footer () {
     return (

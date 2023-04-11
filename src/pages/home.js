@@ -1,16 +1,9 @@
 import React, { useState } from "react"
 import NewsletterSubmission from "../components/newsletter_submission"
 
-
-
-
 export default function Home() {
-
-
     return (
-        
         <>
-        
             <div className="Container">
                 <div className="homeScreenText">
                     <h1><strong>Spike</strong> into</h1>
@@ -18,7 +11,7 @@ export default function Home() {
                     <h2>Register for the ultimate volleyball tournment today!</h2>
                 </div>
                 <div className="homeScreenContent">
-                    <img src='assets\landing2.png' alt="" ></img>
+                    <img src="..\assets\landing2.png" alt="" ></img>
                 </div>
             </div>
             <NewsletterSubmission />

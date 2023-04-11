@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "../css/newsletter.css";
 import NewsletterPosts from "../data/newsletter.json"
 import NewsletterItem from "../components/newsletterItem"
 import NewsletterDetail from "../components/newsletter_detail";
