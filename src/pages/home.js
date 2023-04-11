@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import NewsletterSubmission from "../components/newsletter_submission"
+import Geo from "../components/geo"
+
 
 export default function Home() {
     return (
@@ -16,9 +18,7 @@ export default function Home() {
             </div>
         
             <NewsletterSubmission />
-            <div className="geo">
-                <p id="demo"></p>
-            </div>
+            <Geo />
         </>
     )
 }

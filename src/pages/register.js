@@ -1,38 +1,34 @@
 import React, { useState } from "react"
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import axios from 'axios';
 // import axios from 'axios';
 
-function otk(){
-
-    let randNum = Math.floor(Math.random()*25);
-    let key = String.fromCharCode(randNum+65);
-    randNum = Math.floor(Math.random()*25);
-    key += String.fromCharCode(randNum+97);
-    randNum = Math.floor(Math.random()*100);
-    key += "" + randNum;
-    randNum = Math.floor(Math.random()*25);
-    key += String.fromCharCode(randNum+97);
-    randNum = Math.floor(Math.random()*25);
-    key += String.fromCharCode(randNum+65);
-    randNum = Math.floor(Math.random()*100);
-    key += "" + randNum;
-
-    return key;
-
-}
 
 export default function Register() {
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
-
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [fullName, setFullName] = useState('')
     const [teamName, setTeamName] = useState('')
 
-    const onSubmit = (e) => {
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const activityvar = { 
+            name: email,
+            password: password
+         };
+
+        axios
+        .post('http://localhost:5000/user/add', activityvar)
+        .then((res) => {
+            window.location = '/';
+        });
+    };
+
+
+    // const onSubmit = (e) => {
         // e.preventDefault();
 
         // const activityvar = { 
@@ -57,7 +53,7 @@ export default function Register() {
         // });
 
 
-      };
+    //   };
 
     return <>
         <div className="register formContainer">
