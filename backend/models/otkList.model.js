@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 // Create a Schema object
 const otkSchema = new Schema({
-  id:{ type: Number, required: true }  
+  id:Number  
 });
 
 // This Activitry creates the collection called activitimodels
