@@ -6,7 +6,7 @@
       "location": "City, State",
       "days": "Monday, Wednesday, Friday",
       "geoTag": [49.2002153,-123.0348833],
-      "logo": "https://www.svgrepo.com/show/513169/band-aid.svg",
+      "logo": "assets/logos/1.png",
       "coachName": "Coach Name",
       "coachInfo": "Coaching credentials",
       "email": "team@example.com",

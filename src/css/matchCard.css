@@ -12,8 +12,9 @@
   }
   
   .matchcard {
+    background-color: #3b4a64;
     text-align: center;
-    background-color: #303540;
+    background-image:url("/public/assets/vballicon.png");
     border-radius: 15px;
     padding: 20px;
     word-wrap: break-word;
@@ -21,9 +22,18 @@
     height: 90%; /* add height */
     max-width: 100%;
     box-sizing: border-box;
+
   }
   
-  
+  .matchcard:hover {
+    transform: scale(1.08); /* Increase the scale on hover */
+    transition-duration: 0.1s;
+
+    background: linear-gradient(rgba(2, 22, 55, 0.2), rgb(0, 9, 16)), url("/public/assets/bggif.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+  }
   .matchTitle {
     font-size: 24px;
     font-family: 'Roboto', sans-serif;
@@ -53,16 +63,14 @@
     color:#9F9EA8;
   }
   
-  .viewBtn {
-    background-color: #4CAF50;
+  .winner {
+    background-color: #0E9ED8;
     color: white;
-    padding: 10px 20px;
+    padding: 6px 6px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 5px;
+    font-size: 12px;
     width:auto;
     margin-bottom: 10px;
   }
-  

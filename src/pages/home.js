@@ -18,7 +18,7 @@ export default function Home() {
                     <h2>Register for the ultimate volleyball tournment today!</h2>
                 </div>
                 <div className="homeScreenContent">
-                    <img src='assets\homescreen_image.jpg' alt=""></img>
+                    <img src='assets\landing2.png' alt="" ></img>
                 </div>
             </div>
             <NewsletterSubmission />

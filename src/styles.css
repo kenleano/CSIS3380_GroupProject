@@ -39,6 +39,9 @@ body {
     background-attachment: fixed;
     /* background: linear-gradient(0deg, rgba(4, 8, 13, 0.2), rgba(4, 8, 13, 0.2)), linear-gradient(180deg, rgba(89, 2, 9, 0.3) 0%, rgba(4, 8, 13, 0.3) 100%); */
     background-image: linear-gradient(to bottom right, rgba(4, 8, 13, 1), rgb(16, 1, 1));
+    background-image: url("../public/assets/bg1.png");
+
+    background-size: cover;
 }
 
 .navigationBar {
@@ -183,6 +186,7 @@ footer small {
     background-color: #0E9ED8;
     font-weight: bold;
 }
+  
 
 
 /*****************************/
