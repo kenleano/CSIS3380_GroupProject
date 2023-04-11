@@ -95,3 +95,36 @@
 
 
 }
+
+.geo:hover {
+    transform: scale(1.08); /* Increase the scale on hover */
+    transition-duration: 0.1s;
+    background: linear-gradient(rgba(2, 22, 55, 0.7), rgb(0, 9, 16, 0.5)), url("/public/assets/bggif.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    border-style: solid 15px white ;
+}
+.teamContainer:hover {
+
+    transition-duration: 0.1s;
+   background:none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.geo button {
+    color: white;
+    padding: 5px 5px;
+    height: 2rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #0E9ED8;
+    font-weight: bold;
+}
+
+.geo button:hover {
+    background-color: #0E9ED8;
+    color: white;
+}
