@@ -23,7 +23,7 @@ export default function Register() {
         axios
         .post('http://localhost:5000/user/add', activityvar)
         .then((res) => {
-            window.location = '/';
+            window.location = '/login';
         });
     };
 
@@ -68,7 +68,7 @@ export default function Register() {
                 <input value={fullName} onChange={(e) => setFullName(e.target.value)} for="fullName" placeholder="" id="fullName" name="fullName" />
                 <label htmlFor="teamName">Team name</label>
                 <input value={teamName} onChange={(e) => setTeamName(e.target.value)} for="teamName" placeholder="" id="teamName" name="teamName" />
-                <button type="submit" className="registerBtn"><CustomLink to="/login">Register</CustomLink></button>
+                <button type="submit" className="registerBtn">Register</button>
                 <a className="loginLink" href="/login">Already have an account? Login here.</a>
             </form>
         </div>

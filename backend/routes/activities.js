@@ -2,11 +2,9 @@ const router = require('express').Router();
 
 
 let UserList = require('../models/userList.model');
-
 let TeamList = require('../models/teamList.model');
 let GameList = require('../models/gameList.model');
 let PlayerList = require('../models/playerList.model');
-
 let Activity = UserList;
 
 router.route('/user/add').post(async (req, res) => {
@@ -34,6 +32,24 @@ router.route('/user/add').post(async (req, res) => {
     console.log(err.message);
   }
 
+});
+
+router.get("/user/", async (req, res) => {
+  try {
+
+    const doc = await UserList.find();
+ 
+
+    if (!doc) return res.status(404).json({ msg  : "Doc not found" });
+    res.json(doc);
+  } catch (err) {
+    console.error(err.message);
+
+    if (err.kind === "ObjectId")
+      return res.status(404).json({ msg: "Doc not found" });
+
+    res.status(500).send("Server Error");
+  }
 });
 
 router.get("/user/:id", async (req, res) => {
@@ -160,6 +176,25 @@ router.route('/team/add').post(async (req, res) => {
   
 });
 
+router.get('/team/', async (req, res) => {
+
+  Activity = TeamList;
+  try {
+    
+    const doc = await Activity.find();
+
+    if (!doc) return res.status(404).json({ msg  : "Doc not found" });
+    res.json(doc);
+  } catch (err) {
+    console.error(err.message);
+
+    if (err.kind === "ObjectId")
+      return res.status(404).json({ msg: "Doc not found" });
+
+    res.status(500).send("Server Error");
+  }
+});
+
 router.get('/team/:id', async (req, res) => {
 
     Activity = TeamList;
@@ -260,8 +295,6 @@ router.route('/team/update/:id').post(async (req, res) => {
 
 
 
-
-
 router.route('/player/add').post(async (req, res) => {
   Activity = PlayerList;
   
@@ -302,12 +335,29 @@ router.route('/player/add').post(async (req, res) => {
 
   });
 
+router.get('/player/', async (req, res) => {
+  Activity = PlayerList;
+  try {
+  
+    const doc = await Activity.find();
+
+    if (!doc) return res.status(404).json({ msg  : "Doc not found" });
+    res.json(doc);
+  } catch (err) {
+    console.error(err.message);
+
+    if (err.kind === "ObjectId")
+      return res.status(404).json({ msg: "Doc not found" });
+
+    res.status(500).send("Server Error");
+  }
+});
+
 router.get('/player/:id', async (req, res) => {
   Activity = PlayerList;
   try {
     const id1 = req.params.id;
     const docs = await Activity.find();
-    if (id1 == 0){res.json(docs)}
     var doc = docs.find(doc => doc.id == id1);
     
     if (!doc) return res.status(404).json({ msg  : "Doc not found" });
@@ -430,6 +480,24 @@ router.route('/game/add').post(async (req, res) => {
     }
 
   });
+
+router.get('/game/', async (req, res) => {
+  Activity = GameList;
+  try {
+    
+    const doc = await Activity.find();
+    
+    if (!doc) return res.status(404).json({ msg  : "Doc not found" });
+    res.json(doc);
+  } catch (err) {
+    console.error(err.message);
+
+    if (err.kind === "ObjectId")
+      return res.status(404).json({ msg: "Doc not found" });
+
+    res.status(500).send("Server Error");
+  }
+});
 
 router.get('/game/:id', async (req, res) => {
   Activity = GameList;
