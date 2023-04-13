@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 // Create a Schema object
 const teamSchema = new Schema({
   id:Number,
-  name:String,
+  teamName:String,
   description:String,
   location:String,
   days:String,
@@ -16,6 +16,7 @@ const teamSchema = new Schema({
   coachName:String,
   coachInfo: String,
   email: String,
+  password: String,
   open: String
 });
 

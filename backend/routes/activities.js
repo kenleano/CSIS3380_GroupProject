@@ -14,12 +14,12 @@ router.route('/user/add').post(async (req, res) => {
   const size =  docs.length;
   console.log(size);
 
-  const {name, password} = req.body;
+  const {name, password, email, teamName} = req.body;
   var id = 10001 + size;
   id = String(id);
 
   user = new UserList({
-    id, name, password
+    id, email, teamName, name, password
   });
 
   try{
@@ -93,9 +93,9 @@ router.route('/user/update/:id').post(async (req, res) => {
 
 
 
-    const {name, password} = req.body;
+    const {name, password, email, teamName} = req.body;
     user = new UserList({
-      id, name, password
+      id,  name, password, email, teamName,
     });
 
     await Activity.findByIdAndDelete(doc._id)
@@ -135,7 +135,7 @@ router.route('/team/add').post(async (req, res) => {
   const docs = await Activity.find();
   const size =  docs.length;
 
-  const {name,
+  const {teamName,
     description,
     location,
     days,
@@ -145,6 +145,7 @@ router.route('/team/add').post(async (req, res) => {
     coachName,
     coachInfo,
     email,
+    password,
     open} = req.body;
 
   var id = 20001 + size;
@@ -152,7 +153,7 @@ router.route('/team/add').post(async (req, res) => {
 
   team = new Activity({
     id, 
-    name,
+    teamName,
     description,
     location,
     days,
@@ -162,6 +163,7 @@ router.route('/team/add').post(async (req, res) => {
     coachName,
     coachInfo,
     email,
+    password,
     open
   });
 
