@@ -31,8 +31,8 @@ async function getDistances(){
     for(var team of teamTable){
 
 
-        var lat1 = team.geolat;
-        var lon1 = team.geolon;
+        var lat1 = team.geotag[0];
+        var lon1 = team.geotag[1];
 
         var dMin = 999999999999999;
         var d = distance(lat1, lon1, crd.latitude, crd.longitude);

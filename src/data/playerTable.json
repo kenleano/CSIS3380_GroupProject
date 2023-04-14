@@ -1,37 +1,37 @@
 {
   "players": [
     {
-      "teamID": 1,
-      "id": 1,
+      "teamID": 20003,
+      "id": 30001,
       "name": "John Smith",
       "position": "Forward",
       "DOB": "01/01/1990",
       "contact": "john.smith@example.com",
       "injuries": "None",
       "active": true,
-      "medical": "Fit for play"
+      "medical": "NEI HN96295635"
     },
     { 
-      "teamID": 1,
-      "id": 2,
+      "teamID": 20003,
+      "id": 30002,
       "name": "Jane Doe",
       "position": "Midfielder",
       "DOB": "02/02/1991",
       "contact": "jane.doe@example.com",
       "injuries": "Sprained ankle",
       "active": true,
-      "medical": "Doubtful for next game"
+      "medical": "BlueCross 9000042 HN96295123"
     },
     { 
-      "teamID": 1,
-      "id": 3,
+      "teamID": 20003,
+      "id": 30003,
       "name": "Bob Johnson",
       "position": "Defender",
       "DOB": "03/03/1992",
       "contact": "bob.johnson@example.com",
       "injuries": "Knee injury",
       "active": false,
-      "medical": "Out for season"
+      "medical": "NEI HN9629412"
     }
   ]
 
