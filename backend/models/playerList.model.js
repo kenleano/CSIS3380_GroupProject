@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 // Create a Schema object
 const playerSchema = new Schema({
   id:Number,
+  teamId:Number,
   name:String,
   position:String,
   DOB:String,

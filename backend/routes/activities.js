@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 
+
 let UserList = require('../models/userList.model');
 let TeamList = require('../models/teamList.model');
 let GameList = require('../models/gameList.model');
@@ -12,21 +13,33 @@ router.route('/user/add').post(async (req, res) => {
   
   const docs = await Activity.find();
   const size =  docs.length;
-  console.log(size);
 
-  const {name, password, email, teamName} = req.body;
+  const {email, password, teamName, coachName} = req.body;
   var id = 10001 + size;
-  id = String(id);
+  var teamId = id + 10000;
+  // id = String(id);
+  // teamId = String(id);
 
   user = new UserList({
-    id, email, teamName, name, password
+    id, email, password, teamId
   });
 
+  var id = teamId;
+  var coachInfo = email;
+
+  team = new TeamList({
+    id, teamName, coachName, coachInfo
+  });
+  
   try{
     user
       .save()
+      .catch((err) => res.status(400).json('Error: ' + err));
+    team
+      .save()
       .then(() => res.json('Activity added!'))
       .catch((err) => res.status(400).json('Error: ' + err));
+
   }catch(err)
   {
     console.log(err.message);
@@ -56,7 +69,6 @@ router.get("/user/:id", async (req, res) => {
   try {
     const id1 = req.params.id;
     const docs = await UserList.find();
-    if (id1 == 0){res.json(docs)}
     var doc = docs.find(doc => doc.id == id1);
    
 
@@ -83,36 +95,18 @@ router.route('/user/delete/:id').delete(async (req, res) => {
 });
 
 router.route('/user/update/:id').post(async (req, res) => {
-  
+  let Activity = UserList;
   try {
     const id = req.params.id;
-    const docs = await UserList.find();
+    const docs = await Activity.find();
     var doc = docs.find(doc => doc.id == id);
     if (!doc) return res.status(404).json({ msg  : "Doc not found" });
-    
+    const dbId = doc._id;
 
-
-
-    const {name, password, email, teamName} = req.body;
-    user = new UserList({
-      id,  name, password, email, teamName,
-    });
-
-    await Activity.findByIdAndDelete(doc._id)
-    .catch((err) => res.status(400).json('Error: ' + err));
-
-    try{
-      user
-        .save()
-        .then(() => res.json('Activity Updated!'))
+    await  Activity.findByIdAndUpdate(dbId,req.body)
+        .then(() => res.json('Activity updated!'))
         .catch((err) => res.status(400).json('Error: ' + err));
-    }catch(err)
-    {
-
-      console.log(err.message);
-    }
-
-
+    
   } catch (err) {
     console.error(err.message);
 
@@ -144,12 +138,11 @@ router.route('/team/add').post(async (req, res) => {
     logo,
     coachName,
     coachInfo,
-    email,
-    password,
-    open} = req.body;
+    open,
+    playersId} = req.body;
 
   var id = 20001 + size;
-  id = String(id);
+  // id = String(id);
 
   team = new Activity({
     id, 
@@ -162,9 +155,8 @@ router.route('/team/add').post(async (req, res) => {
     logo,
     coachName,
     coachInfo,
-    email,
-    password,
-    open
+    open,
+    playersId
   });
 
   try{
@@ -203,7 +195,7 @@ router.get('/team/:id', async (req, res) => {
     try {
       const id1 = req.params.id;
       const docs = await Activity.find();
-      if (id1 == 0){res.json(docs)}
+
       var doc = docs.find(doc => doc.id == id1);
       
       if (!doc) return res.status(404).json({ msg  : "Doc not found" });
@@ -237,46 +229,11 @@ router.route('/team/update/:id').post(async (req, res) => {
     var doc = docs.find(doc => doc.id == id);
     if (!doc) return res.status(404).json({ msg  : "Doc not found" });
     
-    const {name,
-      description,
-      location,
-      days,
-      geolat,
-      geolon,
-      logo,
-      coachName,
-      coachInfo,
-      email,
-      open} = req.body;
+    const dbId = doc._id;
 
-    team = new UserList({
-      id, 
-      name,
-      description,
-      location,
-      days,
-      geolat,
-      geolon,
-      logo,
-      coachName,
-      coachInfo,
-      email,
-      open
-    });
-
-    await Activity.findByIdAndDelete(doc._id)
-    .catch((err) => res.status(400).json('Error: ' + err));
-
-    try{
-      team
-        .save()
-        .then(() => res.json('Activity Updated!'))
+    await  Activity.findByIdAndUpdate(dbId,req.body)
+        .then(() => res.json('Activity updated!'))
         .catch((err) => res.status(400).json('Error: ' + err));
-    }catch(err)
-    {
-
-      console.log(err.message);
-    }
 
 
   } catch (err) {
@@ -304,6 +261,7 @@ router.route('/player/add').post(async (req, res) => {
   const size =  docs.length;
 
   const {name,
+    teamId,
     position,
     DOB,
     contact,
@@ -313,10 +271,11 @@ router.route('/player/add').post(async (req, res) => {
   } = req.body;
 
   var id = 30001 + size;
-  id = String(id);
+  //id = String(id);
 
   player = new Activity({
-    id, 
+    id,
+    teamId,
     name,
     position,
     DOB,
@@ -388,46 +347,16 @@ await Activity.findByIdAndDelete(doc._id)
 router.route('/player/update/:id').post(async (req, res) => {
   Activity = PlayerList;
   try {
+
     const id = req.params.id;
     const docs = await Activity.find();
     var doc = docs.find(doc => doc.id == id);
     if (!doc) return res.status(404).json({ msg  : "Doc not found" });
     
-    const {name,
-      position,
-      DOB,
-      contact,
-      injuries,
-      active,
-      medical
-    } = req.body;
-
-    player = new Activity({
-      id, 
-      name,
-      position,
-      DOB,
-      contact,
-      injuries,
-      active,
-      medical
-      });
-  
-
-    await Activity.findByIdAndDelete(doc._id)
-    .catch((err) => res.status(400).json('Error: ' + err));
-
-    try{
-      player
-        .save()
-        .then(() => res.json('Activity Updated!'))
+    const dbId = doc._id;
+    await  Activity.findByIdAndUpdate(dbId,req.body)
+        .then(() => res.json('Activity updated!'))
         .catch((err) => res.status(400).json('Error: ' + err));
-    }catch(err)
-    {
-
-      console.log(err.message);
-    }
-
 
   } catch (err) {
     console.error(err.message);
@@ -506,7 +435,7 @@ router.get('/game/:id', async (req, res) => {
   try {
     const id1 = req.params.id;
     const docs = await Activity.find();
-    if (id1 == 0){res.json(docs)}
+
     var doc = docs.find(doc => doc.id == id1);
     
     if (!doc) return res.status(404).json({ msg  : "Doc not found" });
@@ -532,7 +461,7 @@ await Activity.findByIdAndDelete(doc._id)
     .catch((err) => res.status(400).json('Error: ' + err));
 });
 
-router.route('/game/update/:id').post(async (req, res) => {
+router.route('/game/update/:id').post(async (req, res) => {s
   Activity = GameList;
   try {
     const id = req.params.id;
@@ -540,37 +469,11 @@ router.route('/game/update/:id').post(async (req, res) => {
     var doc = docs.find(doc => doc.id == id);
     if (!doc) return res.status(404).json({ msg  : "Doc not found" });
     
-    const {id1,
-      id2,
-      date,
-      datenumber,
-      location,
-      result
-    } = req.body;
+    const dbId = doc._id;
 
-    game = new Activity({
-      id, 
-      id1,
-      id2,
-      date,
-      datenumber,
-      location,
-      result});
-  
-
-    await Activity.findByIdAndDelete(doc._id)
+    await  Activity.findByIdAndUpdate(dbId,req.body)
+    .then(() => res.json('Activity updated!'))
     .catch((err) => res.status(400).json('Error: ' + err));
-
-    try{
-      game
-        .save()
-        .then(() => res.json('Activity Updated!'))
-        .catch((err) => res.status(400).json('Error: ' + err));
-    }catch(err)
-    {
-
-      console.log(err.message);
-    }
 
 
   } catch (err) {

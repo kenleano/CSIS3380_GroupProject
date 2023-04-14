@@ -13,11 +13,10 @@ const teamSchema = new Schema({
   geolat: Schema.Types.Decimal128,
   geolon: Schema.Types.Decimal128,
   logo:String,
-  coachName:String,
+  coachName: String,
   coachInfo: String,
-  email: String,
-  password: String,
-  open: String
+  open: String,
+  playersId:[Number]
 });
 
 // This Activitry creates the collection called activitimodels
