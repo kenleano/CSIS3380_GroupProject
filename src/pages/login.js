@@ -12,21 +12,25 @@ export default function Login() {
     e.preventDefault();
     try {
       // Make GET request to server to fetch teams data
-      const response = await axios.get("http://localhost:5000/team");
-      const teams = response.data;
+      const response = await axios.get("http://localhost:5000/user");
+      const users = response.data;
 
       // Check if email and password match against teams data
-      const team = teams.find(
-        (team) => team.email === email && team.password === password
+      const user = users.find(
+        (user) => user.email === email && user.password === password
       );
 
-      if (team) {
+      if (user) {
         // Successful login
+        localStorage.clear();
         alert("Login successful!"); // Replace with appropriate action, e.g. redirect to dashboard
-        localStorage.setItem("teamID", team.id);  // Save team ID to local storage
-        localStorage.setItem("teamString", team);  // Save team ID to local storage
-        console.log("teamID***", team.id)
+       
+        localStorage.setItem("teamID", user.teamId);  // Save team ID to local storage
+        console.log("teamID login", user.teamId)
+        localStorage.setItem("isLoggedIn", "true"); // Save login status to local storage
+     
         navigate("/dashboard"); 
+        window.location.reload();
       } else {
         // Failed login
         setLoginError("Invalid email or password"); // Set error message

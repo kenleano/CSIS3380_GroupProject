@@ -1,13 +1,15 @@
 import "../css/dashboard.css";
 
 import React, { useEffect, useState } from "react";
-// import axios from "axios";
-import playerTable from "../data/playerTable.json";
+
 import teamTable from "../data/teamTable.json";
 import gamesTable from "../data/gameTable.json";
+
+import { Link, useNavigate , } from "react-router-dom";
 import axios from "axios";
 
-const teamID = localStorage.getItem("teamID");
+
+const teamID = Number(localStorage.getItem("teamID"));
 console.log("teamID DASHBOARD", teamID);
 
 function Team() {
@@ -24,7 +26,7 @@ function Team() {
       });
   }, []);
 
-  console.log("TEAMS test:", teams);
+  
 
   const team = teams.find((team) => team.id === Number(teamID));
 
@@ -32,15 +34,14 @@ function Team() {
   if (!team) {
     return <div>Loading...</div>;
   }
+  console.log("TEAMS test:", team);
 
-  const firstLetter = team.teamName.charAt(0).toUpperCase();
-  const imageNum = firstLetter.charCodeAt(0) - 64;
 
   return (
     <div className="dashboardTeam">
       <table>
         <th>
-          <img src={`assets/logos/${imageNum}.png`} alt="logo" />
+          <img src={team.logo} alt="logo" />
         </th>
         <th>
           <h2>{team.teamName}</h2>
@@ -67,7 +68,7 @@ function Players() {
 
   const [players, setPlayers] = useState([]);
   const [newPlayer, setNewPlayer] = useState({
-    teamID: teamID,
+    teamId: teamID,
     name: "",
     position: "",
     DOB: "",  
@@ -103,7 +104,8 @@ function Players() {
       .then((res) => {
         setPlayers([...players, newPlayer]);
         setNewPlayer({
-          teamID: teamID,
+          id:"",
+          teamId: teamID,
           name: "",
           position: "",
           DOB: "",
@@ -129,7 +131,7 @@ function Players() {
       });
   }, []);
 
-  const teamPlayers = players.filter((player) =>player.teamID===Number(teamID));
+  const teamPlayers = players.filter((player) =>player.teamId===Number(teamID));
 
   console.log(teamPlayers);
   if (!teamPlayers) {
@@ -162,7 +164,7 @@ function Players() {
           <td>{player.active.toString()}</td>
           <td>{player.medical}</td>
           <td>
-            <button>Edit</button>
+            {/* <button>Edit</button> */}
             <button onClick={() => handleDeletePlayer(player.id)}>Delete</button>
           </td>
         </tr>
@@ -235,99 +237,6 @@ function Players() {
   </table>
 </div>
   );
-      }
-
-function Players2() {
-  const [players, setPlayers] = React.useState(playerTable.players);
-  const playerFiltered = players.filter((players) => players.teamID === teamID);
-
-  const handleDeletePlayer = (playerID) => {
-    setPlayers((prevPlayers) =>
-      prevPlayers.filter((player) => player.id !== playerID)
-    );
-  };
-
-  const [editingPlayer, setEditingPlayer] = React.useState(null);
-
-  const handleEditPlayer = (playerID, updatedPlayer) => {
-    setPlayers((prevPlayers) =>
-      prevPlayers.map((player) => {
-        if (player.id === playerID) {
-          return { ...player, ...updatedPlayer };
-        } else {
-          return player;
-        }
-      })
-    );
-    setEditingPlayer(null);
-  };
-  const handleAddPlayer = (newPlayer) => {
-    setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
-  };
-
-  console.log("PLAYERS FILTERED:", playerFiltered);
-  return (
-    <div className="dashboardPlayers">
-      <h1>Players:</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Date of Birth</th>
-            <th>Contact</th>
-            <th>Injuries</th>
-            {/* <th>Active</th> */}
-            <th>Medical</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {playerFiltered.map((player) => (
-            <tr key={player.id}>
-              <td>{player.name}</td>
-              <td>{player.position}</td>
-              <td>{player.DOB}</td>
-              <td>{player.contact}</td>
-              <td>{player.injuries}</td>
-              {/* <td>{player.active}</td> */}
-              <td>{player.medical}</td>
-              <td>
-                <button>Edit</button>
-                <button onClick={() => handleDeletePlayer(player.id)}>
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-          <tr>
-            <td>
-              <input type="text"></input>
-            </td>
-            <td>
-              <input type="text"></input>
-            </td>
-            <td>
-              <input type="text"></input>
-            </td>
-            <td>
-              <input type="text"></input>
-            </td>
-            <td>
-              <input type="text"></input>
-            </td>
-            <td>
-              <input type="text"></input>
-            </td>
-            <button className="addPlayerBtn" onClick={() => handleAddPlayer()}>
-              Add Player
-            </button>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
 }
 
 function GamesTable() {
@@ -365,30 +274,65 @@ function GamesTable() {
         </tbody>
       </table>
       <br />
-      <button className="logoutBtn">Logout</button>
+   
     </div>
   );
 }
 
+
+
 function App() {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isLoggedIn") === "true");
+
+  useEffect(() => {
+    // Add event listener for storage changes
+    const handleStorageChange = (e) => {
+      if (e.key === "isLoggedIn") {
+        setIsLoggedIn(e.newValue === "true");
+      }
+    };
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      // Clean up event listener on component unmount
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.clear("teamID");
+    localStorage.setItem("isLoggedIn", "false");
+    navigate("/");
+    window.location.reload();
+  };
+
   return (
     <div className="dashboardContainer">
       <div className="dashboard">
-        <Team />
-        <Players />
-        <br />
-        <GamesTable />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-
-        <br />
+        {/* Render components based on isLoggedIn state */}
+        {isLoggedIn ? (
+          <div>
+            {/* Render logged-in components */}
+            <Team />
+            <Players />
+            <br />
+            <GamesTable />
+            <button className="logoutBtn" onClick={handleLogout}>
+              Logout
+            </button>
+            <br />
+            <br />
+          </div>
+        ) : (
+          <div>
+            {/* Render logged-out components */}
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
 
 export default App;
