@@ -5,12 +5,10 @@ const Schema = mongoose.Schema;
 
 // Create a Schema object
 const userSchema = new Schema({
-  id: String,
- 
-  name: String,
-  password: String,
+  id: Number,
   email: String,
-  teamName: String
+  password: String,
+  teamId: String
 });
 
 // This Activitry creates the collection called activitimodels

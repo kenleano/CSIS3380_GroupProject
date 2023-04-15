@@ -6,11 +6,11 @@ const Schema = mongoose.Schema;
 // Create a Schema object
 const playerSchema = new Schema({
   id:Number,
+  teamId:Number,
   name:String,
   position:String,
   DOB:String,
-  days:String,
-  contact: String,
+   contact: String,
   injuries: String,
   active: Boolean,
   medical: String,
