@@ -162,3 +162,26 @@
   .editProfileBtn:hover {
     background: #23b8f3;
   }
+
+  .editForm {
+
+    color: #fff;
+    border: none;
+
+    cursor: pointer;
+
+
+    width: 150px;
+
+
+  }
+  .editForm input {
+
+    color: #0c0337;
+    border: none;
+    border-radius: 5px;
+    margin:3px;
+    width: 150px;
+    height:25px;
+
+  }
