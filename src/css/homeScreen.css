@@ -98,12 +98,13 @@
 
 .geo:hover {
     transform: scale(1.08); /* Increase the scale on hover */
-    transition-duration: 0.1s;
-    background: linear-gradient(rgba(2, 22, 55, 0.7), rgb(0, 9, 16, 0.5)), url("/public/assets/bggif.gif");
+    transition-duration: 0.4s;
+    background: linear-gradient(rgba(15, 62, 138, 0.4), rgb(0, 9, 16, 1)), url("/public/assets/bggif.gif");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left;
     border-style: solid 15px white ;
+    box-shadow: 0 0 20px 20px rgba(15, 62, 138, 0.4);
 }
 .teamContainer:hover {
 
