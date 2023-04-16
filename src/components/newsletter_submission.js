@@ -6,7 +6,7 @@ export default function NewsletterSubmission () {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        alert(email)
+        alert("Added to newsletter to " + email+"!");
     }
 
     return <div className="newsletterRegistrationForm">
@@ -14,8 +14,8 @@ export default function NewsletterSubmission () {
             <form onSubmit={handleSubmit}>
 
                 <label htmlFor="email">Enter your email here to get the latest news</label>                
-                <input value={email} onChange={(e) => setEmail(e.target.value)} for="email" placeholder="Email" id="email" name="email" />
-                <button type="submit">Log in</button>
+                <input vaue={email} onChange={(e) => setEmail(e.target.value)} for="email" placeholder="Email@example.com" id="email" name="email" />
+                <button className="loginBtn" type="submit">Get Newsletter</button>
             </form>
         </div>
     </div>
