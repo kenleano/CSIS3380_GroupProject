@@ -2,6 +2,12 @@ import TeamCard from "../components/teamCard.js";
 import React, { useState } from "react";
 
 export default function Teams() {
+
+
+
+
+
+  
   return (
     <>
       <div className="container" style={{ height: "100vh", overflowY: "auto" }}>

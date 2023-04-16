@@ -12,8 +12,8 @@ export default function NavigationBar() {
           <CustomLink to="/newsletter">Newsletter</CustomLink>
           <CustomLink to="/results">Results</CustomLink>
 
-            <CustomLink to="/teams">Teams</CustomLink>
-          
+          <CustomLink to="/teams">Teams</CustomLink>
+          <CustomLink to="/world">World</CustomLink>
        
         </ul>
         <ul>
