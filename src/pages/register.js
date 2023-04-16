@@ -13,7 +13,7 @@ export default function Register() {
         e.preventDefault();
 
         const activityvar = { 
-            teamName: teamName, // Update to use fullName instead of email
+            name: teamName, // Update to use fullName instead of email
             password: password,
             email: email, // Add email field
             coachName: coachName, // Add coachName field
@@ -21,7 +21,7 @@ export default function Register() {
         };
 
         axios
-        .post('http://localhost:5000/team/add', activityvar)
+        .post('http://localhost:5000/user/add', activityvar)
         .then((res) => {
             window.location = '/login';
         });

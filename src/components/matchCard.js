@@ -1,144 +1,134 @@
-import React from "react";
+
 import "../css/matchCard.css";
 
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const teamNames = [
-    "Beachcombers",
-    "Cascade Avalanche",
-    "Delta Coastal Selects",
-    "Fraser Valley Volleyball Club",
-    "North Shore Stars",
-    "Phoenix Volleyball Club",
-    "Riverside Volleyball Club",
-    "Thunder Volleyball Club"
-  ];
-  
-  const Matches = [
-    {
-      team1: teamNames[0],
-      team2: teamNames[1],
-      date: "Mar 4, 2023 - 3:00PM",
-      address: "Elite Volleyball Club",
-      winner: teamNames[0],
-    },
-    {
-      team1: teamNames[2],
-      team2: teamNames[3],
-      date: "Mar 4, 2023 - 3:00PM",
-      address: "Elite Volleyball Club",
-      winner: teamNames[3],
-    },
-    {
-      team1: teamNames[4],
-      team2: teamNames[5],
-      date: "Mar 4, 2023 - 3:00PM",
-      address: "Elite Volleyball Club",
-      winner: teamNames[5],
-    },
-    {
-      team1: teamNames[6],
-      team2: teamNames[7],
-      date: "Mar 4, 2023 - 3:00PM",
-      address: "Elite Volleyball Club",
-      winner: teamNames[6],
-    },
-    {
-      team1: teamNames[0],
-      team2: teamNames[1],
-      date: "Mar 4, 2023 - 3:00PM",
-      address: "Elite Volleyball Club",
-      winner: teamNames[0],
-    },
-    {
-      team1: teamNames[2],
-      team2: teamNames[3],
-      date: "Mar 4, 2023 - 3:00PM",
-      address: "Elite Volleyball Club",
-      winner: teamNames[2],
-    },
-    {
-      team1: teamNames[4],
-      team2: teamNames[5],
-      date: "Mar 4, 2023 - 3:00PM",
-      address: "Elite Volleyball Club",
-      winner: teamNames[4],
-    },
-    {
-      team1: teamNames[6],
-      team2: teamNames[7],
-      date: "Mar 4, 2023 - 3:00PM",
-      address: "Elite Volleyball Club",
-      winner: teamNames[7],
-    },
-    {
-      team1: teamNames[0],
-      team2: teamNames[1],
-      date: "Mar 4, 2023 - 3:00PM",
-      address: "Elite Volleyball Club",
-      winner: teamNames[0],
-    },
-    {
-      team1: teamNames[2],
-      team2: teamNames[3],
-      date: "Mar 4, 2023 - 3:00PM",
-      address: "Elite Volleyball Club",
-      winner: teamNames[3],
-    },
-    {
-      team1: teamNames[4],
-      team2: teamNames[5],
-      date: "Mar 4, 2023 - 3:00PM",
-      address: "Elite Volleyball Club",
-      winner: teamNames[4],
-    },
-    {
-      team1: teamNames[6],
-      team2: teamNames[7],
-      date: "Mar 4, 2023 - 3:00PM",
-      address: "Elite Volleyball Club",
-      winner: teamNames[7],
+function MatchCard() {
+  const [games, setGames] = useState([]);
+  const [teams, setTeams] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/team/")
+      .then((response) => {
+        setTeams(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/game/")
+      .then((response) => {
+        setGames(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  const getTeamName = (teamID) => {
+    const team = teams.find((team) => team.id === teamID);
+
+    if (!team || !team.teamName || team.teamName.trim() === "") {
+      return team && team.name ? team.name : "TBD";
+    } else {
+      return team.teamName;
     }
-  ];
-  
-
-function MatchCard(props) {
-
-    return (
-        <div className="matchcardcontainer">
-          <div className="matchcard">
-            <br />
-
-            <h2 className="matchTitle">{props.team1}</h2>
-            <h2 className="versus">versus</h2>
-            <h2 className="matchTitle">{props.team2}</h2>
-            <p className="matchDate">{props.date}</p>
-            <p className="address">{props.address}</p>
-            <button className="winner">W: {props.winner}</button>
-            {/* <button className="viewBtn">VIEW</button> */}
-          </div>
-        </div>
-      );
-      
-}
-
-function App() {
-  const [matches] = React.useState(Matches);
-
-  let matchArray = matches;
-  let matchComponents = [];
-  for (let i = 0; i < matchArray.length; i++) {
-    let match = matchArray[i];
-    matchComponents.push(
-      <MatchCard
-        team1={match.team1}
-        team2={match.team2}
-        date={match.date}
-        address={match.address}
-        winner={match.winner}
-      />
-    );
   }
-  return <div className="matches-container" >{matchComponents}</div>;
+
+
+  console.log("GAMES length:", games.length);
+
+
+  return (
+    <div className="matches-container">
+      {games.map((game) => (
+        <div className="matchcard" key={game.id}>
+          <h2 className="matchTitle">{getTeamName(game.id1)}</h2>
+          <p className="versus">versus</p>
+          <h2 className="matchTitle">{getTeamName(game.id2)}</h2>
+          <p className="matchDate">{game.date}</p>
+          <p className="address">{game.location}</p>
+          <button className="winner">RESULT: {game.result}</button>
+        </div>
+      ))}
+    </div>
+  );
 }
 
-export default App;
+function SearchBar() {
+  const [teams, setTeams] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/team/");
+        setTeams(response.data);
+        console.log("TEAMS:", response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const [searchInput, setSearchInput] = useState("");
+  const handleSearchInputChange = (event) => {
+    setSearchInput(event.target.value);
+  };
+
+  const filteredTeams = teams.filter((team) =>
+    team.teamName.toLowerCase().includes(searchInput.toLowerCase())
+  );
+
+  const teamComponents = filteredTeams.map((team) => (
+    <MatchCard key={team.id} team={team} />
+  ));
+
+  console.log("TEAM COMPONENT LENGTH: " + teamComponents.length);
+  return (
+    <div className="app-wrapper">
+      <br />
+      <br />
+      <div className="search-container">
+        <h2>Search for a team</h2>
+        <input
+          className="searchbar"
+          type="text"
+          value={searchInput}
+          onChange={handleSearchInputChange}
+          placeholder="Search for a team"
+        />
+      </div>
+      <div className="team-container">
+        {teamComponents.length > 0 ? (
+          teamComponents
+        ) : (
+          <p>No teams found</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function Results() {
+  return (
+    <div className="container">
+      <br/>
+      <br/>
+      <br/>
+      <MatchCard />
+    </div>
+  );
+}
+
+
+
+
+
+
+

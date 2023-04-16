@@ -205,7 +205,7 @@ function Team() {
       <tr>Days: {team.days}</tr>
       <tr>GeoTag: {team.geoTag}</tr>
       <tr>Coach: {team.coachName}</tr>
-      <tr>{team.coachInfo}</tr>
+      <tr>Coach Info: {team.coachInfo}</tr>
       <tr>Email: {team.email}</tr>
       <tr>Open: {team.open}</tr>
       <br />
@@ -468,19 +468,53 @@ function Players() {
 }
 
 function GamesTable() {
-  const [games] = React.useState(gamesTable.games);
-  const [teams] = React.useState(teamTable.teams);
+  const [games, setGames] = React.useState([]);
+  const [teams, setTeams] = React.useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/team/")
+      .then((response) => {
+        setTeams(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/game/")
+      .then((response) => {
+        setGames(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   function getTeamName(teamID) {
     const team = teams.find((team) => team.id === teamID);
-    return team.name;
+    
+    if (!team || !team.teamName || team.teamName.trim() === "") {
+      return team && team.name ? team.name : "TBD";
+    } else {
+      return team.teamName;
+    }
   }
+  
+  const filteredGames = games.filter((game) => game.id1 === teamID || game.id2 === teamID);
+
+
+  console.log("GAMES: " + filteredGames)
   return (
     <div className="dashboardGames">
       <h1>Games:</h1>
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+
             <th>Team 1</th>
             <th>Team 2</th>
             <th>Date</th>
@@ -491,7 +525,6 @@ function GamesTable() {
         <tbody>
           {games.map((game) => (
             <tr key={game.id}>
-              <td>{game.id}</td>
               <td>{getTeamName(game.id1)}</td>
               <td>{getTeamName(game.id2)}</td>
               <td>{game.date}</td>
