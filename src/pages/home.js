@@ -2,17 +2,7 @@ import React, { useState } from "react"
 import NewsletterSubmission from "../components/newsletter_submission"
 import Geo from "../components/geo"
 
-
 export default function Home() {
-
-
-
-
-
-
-
-
-    
     return (
         <>
             <div className="Container">
@@ -24,8 +14,7 @@ export default function Home() {
                 <div className="homeScreenContent">
                     <img src="..\assets\landing2.png" alt="" ></img>
                 </div>
-            </div>
-        
+            </div>        
             <NewsletterSubmission />
             <Geo />
         </>

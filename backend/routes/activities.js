@@ -1,7 +1,4 @@
 const router = require('express').Router();
-
-
-
 let UserList = require('../models/userList.model');
 let TeamList = require('../models/teamList.model');
 let GameList = require('../models/gameList.model');
@@ -117,10 +114,6 @@ router.route('/user/update/:id').post(async (req, res) => {
   }
 
 });
-
-
-
-
 
 router.route('/team/add').post(async (req, res) => {
   
@@ -245,13 +238,6 @@ router.route('/team/update/:id').post(async (req, res) => {
 
 });
 
-
-
-
-
-
-
-
 router.route('/player/add').post(async (req, res) => {
   Activity = PlayerList;
   
@@ -367,13 +353,6 @@ router.route('/player/update/:id').post(async (req, res) => {
 
 });
 
-
-
-
-
-
-
-
 router.route('/game/add').post(async (req, res) => {
   Activity = GameList;
   const docs = await Activity.find();
@@ -484,6 +463,5 @@ router.route('/game/update/:id').post(async (req, res) => {s
   }
 
 });
-
 
 module.exports = router;

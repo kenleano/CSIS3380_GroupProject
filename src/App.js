@@ -10,6 +10,10 @@ import Login from "./pages/login.js"
 import Footer from "./components/footer";
 import Register from "./pages/register";
 import Dashboard from "./pages/dashboard";
+import { disableReactDevTools} from "@fvilers/disable-react-devtools"
+
+//This command wil dissable React Dev Tools when in production mode
+if (process.env.NODE_ENV === 'production') disableReactDevTools()
 
 function App() {
   return (

@@ -3,8 +3,6 @@ import "../data/geolocation"
 import axios from "axios";
 
 export default function Geo() {
-
-
     const [closestTeam, setClosest] = useState([]);
     const [openFP, setOpen] = useState([]);
     const [coach, setCoach] = useState([]);
@@ -28,31 +26,22 @@ export default function Geo() {
         return Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     }
 
-
     function dLoop(teams, coords){
         var ID = 0;
         var dMin = 99;
         teams.forEach(team=>{
             var lat1 = parseFloat(team.geotag[0].$numberDecimal);
             var lon1 = parseFloat(team.geotag[1].$numberDecimal);
-
-
-
-            
-            
             var d = distance(lat1, lon1, coords.latitude, coords.longitude);
             if (d<dMin){
                 dMin = d;
                 ID = team.id; 
             }
-            
         })
-        
         return ID;
     }
 
-    useEffect(() => {
-       
+    useEffect(() => {       
         const fetchData = async () => {
             try {
             const response = await axios.get("http://localhost:5000/team/");
@@ -67,15 +56,13 @@ export default function Geo() {
                 setOpen("ACCEPTING NEW PLAYERS");
                 setCoach("Coach: " + closest.coachName);
                 setCoachI("Contact: " + closest.coachInfo);
-            }
-            
+            }            
             } catch (error) {
             console.log(error);
             }
         };
         fetchData();
     }, []);
-
 
     if (!closestTeam) {
         return <div>Loading...</div>;
