@@ -4,6 +4,15 @@ import Geo from "../components/geo"
 
 
 export default function Home() {
+
+
+
+
+
+
+
+
+    
     return (
         <>
             <div className="Container">
