@@ -9,7 +9,8 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = "mongodb+srv://projectAdmin:admin123@cluster0.f3fsce9.mongodb.net/projectDB";
+//const uri = "mongodb+srv://projectAdmin:admin123@cluster0.f3fsce9.mongodb.net/projectDB";
+const uri = "https://csis3380-group4.onrender.com";
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true,  useUnifiedTopology: true   }
 );
 const connection = mongoose.connection;
