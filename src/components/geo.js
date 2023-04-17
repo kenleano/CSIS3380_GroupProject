@@ -10,36 +10,39 @@ export default function Geo() {
     const [coachInfo, setCoachI] = useState([]);
 
     //function that returns the relative surface distance between two coordinates on a sphere
-    function distance(latitude1, longitude1, latitude2, longitude2){
+    function distance(latitude1, longitude1, latitude2, longitude2) {
 
         var pi = Math.PI;
-    
+
         var rad_lat1 = latitude1 * pi / 180;
         var rad_lat2 = latitude2 * pi / 180;
         var rad_lon1 = longitude1 * pi / 180;
         var rad_lon2 = longitude2 * pi / 180;
-    
+
         var delta_latitude = rad_lat2 - rad_lat1;
         var delta_longitude = rad_lon2 - rad_lon1;
-    
-        var a = Math.pow(Math.sin(delta_latitude/2),2) +
-        Math.cos(rad_lat1) * Math.cos(rad_lat2) *
-        Math.pow(Math.sin(delta_longitude/2),2);
-    
-        return Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+        var a = Math.pow(Math.sin(delta_latitude / 2), 2) +
+            Math.cos(rad_lat1) * Math.cos(rad_lat2) *
+            Math.pow(Math.sin(delta_longitude / 2), 2);
+
+        return Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     }
 
     //this function get the collection of team and the local coordinate and return the ID of the team closest to that coordinate
-    function dLoop(teams, coords){
+    function dLoop(teams, coords) {
         var ID = 0;
         var dMin = 99; //distance placeholder. The biggest number that could be compared two is 3.14
-        teams.forEach(team=>{
-            var lat1 = parseFloat(team.geotag[0].$numberDecimal); //get team latitude
-            var lon1 = parseFloat(team.geotag[1].$numberDecimal); //get team longitude
-            var d = distance(lat1, lon1, coords.latitude, coords.longitude); //send parameters do formula
-            if (d<dMin){ //saves the distance if smaller the the previous one.
-                dMin = d;
-                ID = team.id; 
+
+        teams.forEach(team => {
+            if (!team.geotag[0] == null) {
+                var lat1 = parseFloat(team.geotag[0].$numberDecimal); //get team latitude
+                var lon1 = parseFloat(team.geotag[1].$numberDecimal); //get team longitude
+                var d = distance(lat1, lon1, coords.latitude, coords.longitude); //send parameters do formula
+                if (d < dMin) { //saves the distance if smaller the the previous one.
+                    dMin = d;
+                    ID = team.id;
+                }
             }
         })
         return ID; //return id
@@ -50,24 +53,24 @@ export default function Geo() {
 
             console.log(process.env.REACT_APP_BACKURL)
             try {
-            console.log(process.env.REACT_APP_BACKURL + "/team/")
-            const response = await axios.get(process.env.REACT_APP_BACKURL + "/team/"); //route to request teams collection
-            console.log("Response:" + response)
+                console.log(process.env.REACT_APP_BACKURL + "/team/")
+                const response = await axios.get(process.env.REACT_APP_BACKURL + "/team/"); //route to request teams collection
+                console.log("Response:" + response)
 
-            const crd =  await getPosition(); //get geoCoordinates
-            const ID = dLoop(response.data, crd.coords); //get closet team ID
+                const crd = await getPosition(); //get geoCoordinates
+                const ID = dLoop(response.data, crd.coords); //get closet team ID
 
-            const closest = response.data.find((team) => team.id === ID); //get team with the filtered id
-            console.log(closest);
-            setClosest(closest); //save the team to local variable
+                const closest = response.data.find((team) => team.id === ID); //get team with the filtered id
+                console.log(closest);
+                setClosest(closest); //save the team to local variable
 
-            if(closest.open){ //if team open to new players, add the coach name and info.
-                setOpen("ACCEPTING NEW PLAYERS");
-                setCoach("Coach: " + closest.coachName);
-                setCoachI("Contact: " + closest.coachInfo);
-            }            
+                if (closest.open) { //if team open to new players, add the coach name and info.
+                    setOpen("ACCEPTING NEW PLAYERS");
+                    setCoach("Coach: " + closest.coachName);
+                    setCoachI("Contact: " + closest.coachInfo);
+                }
             } catch (error) {
-            console.log(error);
+                console.log(error);
             }
         };
         fetchData();
