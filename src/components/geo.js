@@ -39,7 +39,7 @@ export default function Geo() {
             console.log(team.geotag.lenght == 0);
             console.log(team.geotag[0] == undefined);
             console.log(team.geotag[0].$numberDecimal == undefined);
-            if (team.geotag.lenght > 0) {
+            if (!team.geotag[0] == undefined) {
                 var lat1 = parseFloat(team.geotag[0].$numberDecimal); //get team latitude
                 var lon1 = parseFloat(team.geotag[1].$numberDecimal); //get team longitude
                 var d = distance(lat1, lon1, coords.latitude, coords.longitude); //send parameters do formula
