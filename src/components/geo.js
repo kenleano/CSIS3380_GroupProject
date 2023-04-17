@@ -36,12 +36,12 @@ export default function Geo() {
 
         teams.forEach(team => {
             console.log("Team id: " + team.id)
-            console.log(team.geotag)
+            console.log(team.geotag.length)
             console.log("Team.geotag: " + team.geotag == null)
             console.log(team.geotag[0])
-            console.log("Team.geotag:[0]: " + team.geotag == null)
+            console.log("Team.geotag:[0]: " + team.geotag[0] == null)
             console.log(team.geotag[0].$numberDecimal)
-            console.log("team.geotag[0].$numberDecimal: " + team.geotag == null)
+            console.log("team.geotag[0].$numberDecimal: " + team.geotag[0].$numberDecimal == null)
             consolo.log("=========================================================")
             if (!team.geotag) {
                 var lat1 = parseFloat(team.geotag[0].$numberDecimal); //get team latitude
