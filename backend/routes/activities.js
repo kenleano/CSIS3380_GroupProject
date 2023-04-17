@@ -28,8 +28,9 @@ router.route('/user/add').post(async (req, res) => { //route to add a new docume
   id = teamId;    //reuse of id variable, now for the team creation
   var coachInfo = email;  //getting the last variable from the body
 
+  var geo = [0,0]
   team = new TeamList({  //assigning the read variables to the document that will be sent to database
-    id, teamName, coachName, coachInfo
+    id, teamName, coachName, coachInfo, geo
   });
   
   try{    
