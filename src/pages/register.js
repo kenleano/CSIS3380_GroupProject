@@ -21,7 +21,7 @@ export default function Register() {
         };
 
         axios
-        .post(process.env.BACKURL + '/user/add', activityvar)
+        .post(process.env.REACT_APP_BACKURL + '/user/add', activityvar)
         .then((res) => {
             window.location = '/login';
         });

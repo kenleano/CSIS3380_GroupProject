@@ -48,7 +48,6 @@ router.get("/user/", async (req, res) => {
   try {
 
     const doc = await UserList.find();
- 
 
     if (!doc) return res.status(404).json({ msg  : "Doc not found" });
     res.json(doc);

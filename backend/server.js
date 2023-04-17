@@ -2,10 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false);
-const env = require('dotenv');
 
-env.config()
-console.log(process.env.BACKURL)
+
 const app = express();
 const port = process.env.PORT || 5000;
 

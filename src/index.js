@@ -6,7 +6,7 @@ import "./styles.css"
 import "@fontsource/raleway";
 // import dotenv from 'dotenv';
 // dotenv.config()
-console.log("Index: " + process.env.BACKURL)
+console.log("Index: " + process.env.REACT_APP_BACKURL)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
