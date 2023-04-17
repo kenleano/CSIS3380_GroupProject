@@ -21,7 +21,7 @@ export default function Register() {
         };
 
         axios
-        .post('http://localhost:5000/user/add', activityvar)
+        .post(process.env.BACKURL + '/user/add', activityvar)
         .then((res) => {
             window.location = '/login';
         });

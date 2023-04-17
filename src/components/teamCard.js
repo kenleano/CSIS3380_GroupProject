@@ -32,7 +32,7 @@ function SearchBar() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/team/");
+        const response = await axios.get(process.env.BACKURL + "/team/");
         setTeams(response.data);
         console.log("TEAMS:", response.data);
       } catch (error) {

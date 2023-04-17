@@ -12,7 +12,7 @@ export default function Login() {
     e.preventDefault();
     try {
       // Make GET request to server to fetch teams data
-      const response = await axios.get("http://localhost:5000/user");
+      const response = await axios.get(process.env.BACKURL + "/user");
       const users = response.data;
 
       // Check if email and password match against teams data

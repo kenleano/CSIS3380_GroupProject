@@ -16,7 +16,7 @@ function Team2() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/team/")
+      .get(process.env.BACKURL + "/team/")
       .then((response) => {
         setTeams(response.data);
       })
@@ -75,7 +75,7 @@ function Team() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/team/")
+      .get(process.env.BACKURL + "/team/")
       .then((response) => {
         setTeams(response.data);
       })
@@ -168,7 +168,7 @@ function Team() {
 
       // Make POST request to server to update team data with updatedData object
       await axios.post(
-        `http://localhost:5000/team/update/${teamID}`,
+        process.env.BACKURL + `/team/update/${teamID}`,
         updatedData
       );
 
@@ -306,7 +306,7 @@ function Players() {
   };
   const handleDeletePlayer = (id) => {
     axios
-      .delete(`http://localhost:5000/player/delete/${id}`)
+      .delete(process.env.BACKURL + `/player/delete/${id}`)
       .then((response) => {
         console.log(response.data);
         // Assuming successful deletion, update local state by filtering out the deleted player
@@ -324,7 +324,7 @@ function Players() {
     e.preventDefault();
     const activityvar = { ...newPlayer };
     axios
-      .post("http://localhost:5000/player/add", activityvar)
+      .post(process.env.BACKURL + "/player/add", activityvar)
       .then((res) => {
         setPlayers([...players, newPlayer]);
         setNewPlayer({
@@ -346,7 +346,7 @@ function Players() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/player/")
+      .get( process.env.BACKURL + "/player/")
       .then((response) => {
         setPlayers(response.data);
       })
@@ -473,7 +473,7 @@ function GamesTable() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/team/")
+      .get(process.env.BACKURL + "/team/")
       .then((response) => {
         setTeams(response.data);
       })
@@ -485,7 +485,7 @@ function GamesTable() {
   
   useEffect(() => {
     axios
-      .get("http://localhost:5000/game/")
+      .get(process.env.BACKURL + "/game/")
       .then((response) => {
         setGames(response.data);
       })

@@ -2,22 +2,24 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false);
+const env = require('dotenv');
 
+env.config()
+console.log(process.env.BACKURL)
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
-//const uri = "mongodb+srv://projectAdmin:admin123@cluster0.f3fsce9.mongodb.net/projectDB";
-const uri = "https://csis3380-group4.onrender.com";
+const uri = "mongodb+srv://projectAdmin:admin123@cluster0.f3fsce9.mongodb.net/projectDB";
+
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true,  useUnifiedTopology: true   }
 );
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
-
 
 // import routes
 const dbRouter = require('./routes/activities');

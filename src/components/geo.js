@@ -43,8 +43,9 @@ export default function Geo() {
 
     useEffect(() => {       
         const fetchData = async () => {
+            console.log(process.env.BACKURL)
             try {
-            const response = await axios.get("http://localhost:5000/team/");
+            const response = await axios.get(process.env.BACKURL + "/team/");
             const crd =  await getPosition();
             const ID = dLoop(response.data, crd.coords);
 
