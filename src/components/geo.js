@@ -35,15 +35,7 @@ export default function Geo() {
         var dMin = 99; //distance placeholder. The biggest number that could be compared two is 3.14
 
         teams.forEach(team => {
-            console.log("Team id: " + team.id)
-            console.log(team.geotag.length)
-            console.log("Team.geotag: " + team.geotag == null)
-            console.log(team.geotag[0])
-            console.log("Team.geotag:[0]: " + team.geotag[0] == null)
-            console.log(team.geotag[0].$numberDecimal)
-            console.log("team.geotag[0].$numberDecimal: " + team.geotag[0].$numberDecimal == null)
-            consolo.log("=========================================================")
-            if (!team.geotag) {
+            if (!team.geotag == undefined) {
                 var lat1 = parseFloat(team.geotag[0].$numberDecimal); //get team latitude
                 var lon1 = parseFloat(team.geotag[1].$numberDecimal); //get team longitude
                 var d = distance(lat1, lon1, coords.latitude, coords.longitude); //send parameters do formula
