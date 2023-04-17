@@ -18,7 +18,7 @@ const teamSchema = new Schema({
   playersId:[Number]
 });
 
-// This Activitry creates the collection called activitimodels
+// This Activitry creates the collection called teams
 const Team = mongoose.model("Team", teamSchema);
 module.exports = Team;
 

@@ -14,7 +14,7 @@ const gameSchema = new Schema({
   result: String
 });
 
-// This Activitry creates the collection called activitimodels
+// This Activitry creates the collection called games
 const Game = mongoose.model("Game", gameSchema);
 module.exports = Game;
 

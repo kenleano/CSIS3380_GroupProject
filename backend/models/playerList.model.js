@@ -16,7 +16,7 @@ const playerSchema = new Schema({
   medical: String,
 });
 
-// This Activitry creates the collection called activitimodels
+// This Activitry creates the collection called players
 const Player = mongoose.model("Player", playerSchema);
 module.exports = Player;
 

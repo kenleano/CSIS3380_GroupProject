@@ -10,6 +10,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+//connection to the chosen atlas database.
 const uri = "mongodb+srv://projectAdmin:admin123@cluster0.f3fsce9.mongodb.net/projectDB";
 
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true,  useUnifiedTopology: true   }
@@ -22,7 +23,7 @@ connection.once('open', () => {
 // import routes
 const dbRouter = require('./routes/activities');
 
-// adding /books to before all routes
+// adding / to before all routes
 app.use('/', dbRouter);
 
 app.listen(port, () => {
