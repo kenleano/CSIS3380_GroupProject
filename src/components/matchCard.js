@@ -10,7 +10,7 @@ function MatchCard() {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_BACKURL + "/team/")
+      .get(process.env.RENDER_V + "/team/")
       .then((response) => {
         setTeams(response.data);
       })
@@ -21,7 +21,7 @@ function MatchCard() {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_BACKURL + "/game/")
+      .get(process.env.RENDER_V + "/game/")
       .then((response) => {
         setGames(response.data);
       })
@@ -66,7 +66,7 @@ function SearchBar() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_BACKURL + "/team/");
+        const response = await axios.get(process.env.RENDER_V + "/team/");
         setTeams(response.data);
         console.log("TEAMS:", response.data);
       } catch (error) {

@@ -49,10 +49,10 @@ export default function Geo() {
     useEffect(() => {        //request a route as the page loads. 
         const fetchData = async () => {
 
-            console.log(process.env.REACT_APP_BACKURL)
+            console.log(process.env.RENDER_V)
             try {
-                console.log(process.env.REACT_APP_BACKURL + "/team/")
-                const response = await axios.get(process.env.REACT_APP_BACKURL + "/team/"); //route to request teams collection
+                console.log(process.env.RENDER_V + "/team/")
+                const response = await axios.get(process.env.RENDER_V + "/team/"); //route to request teams collection
                 console.log("Response:" + response)
 
                 const crd = await getPosition(); //get geoCoordinates

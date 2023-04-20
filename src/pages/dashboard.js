@@ -16,7 +16,7 @@ function Team2() {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_BACKURL + "/team/")
+      .get(process.env.RENDER_V + "/team/")
       .then((response) => {
         setTeams(response.data);
       })
@@ -75,7 +75,7 @@ function Team() {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_BACKURL + "/team/")
+      .get(process.env.RENDER_V + "/team/")
       .then((response) => {
         setTeams(response.data);
       })
@@ -168,7 +168,7 @@ function Team() {
 
       // Make POST request to server to update team data with updatedData object
       await axios.post(
-        process.env.REACT_APP_BACKURL + `/team/update/${teamID}`,
+        process.env.RENDER_V + `/team/update/${teamID}`,
         updatedData
       );
 
@@ -306,7 +306,7 @@ function Players() {
   };
   const handleDeletePlayer = (id) => {
     axios
-      .delete(process.env.REACT_APP_BACKURL + `/player/delete/${id}`)
+      .delete(process.env.RENDER_V + `/player/delete/${id}`)
       .then((response) => {
         console.log(response.data);
         // Assuming successful deletion, update local state by filtering out the deleted player
@@ -324,7 +324,7 @@ function Players() {
     e.preventDefault();
     const activityvar = { ...newPlayer };
     axios
-      .post(process.env.REACT_APP_BACKURL + "/player/add", activityvar)
+      .post(process.env.RENDER_V + "/player/add", activityvar)
       .then((res) => {
         setPlayers([...players, newPlayer]);
         setNewPlayer({
@@ -346,7 +346,7 @@ function Players() {
 
   useEffect(() => {
     axios
-      .get( process.env.REACT_APP_BACKURL + "/player/")
+      .get( process.env.RENDER_V + "/player/")
       .then((response) => {
         setPlayers(response.data);
       })
@@ -473,7 +473,7 @@ function GamesTable() {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_BACKURL + "/team/")
+      .get(process.env.RENDER_V + "/team/")
       .then((response) => {
         setTeams(response.data);
       })
@@ -485,7 +485,7 @@ function GamesTable() {
   
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_BACKURL + "/game/")
+      .get(process.env.RENDER_V + "/game/")
       .then((response) => {
         setGames(response.data);
       })
